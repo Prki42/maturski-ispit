@@ -1,0 +1,965 @@
+---
+questions:
+  - question: |-
+      Data je deklaracija promenljivih i deo programskog koda:
+
+      ```c
+      int i, temp, n = 11;
+      int x[30]={ -3, -1, -2, -2, 1,4, 3, 1, 5, -8,5};
+      temp=x[0];
+      i=0;
+      while(i<n-1) x[i++]=x[i+1];
+      x[n-1]=temp;
+      ```
+
+      Prosuditi na osnovu naredbi koje će biti izvršene u while ciklusu `while` ciklusu kako će izgledati transformisan niz `x` **od** `n` **elemenata**.
+    index-2016: 61
+    answers:
+      - |-
+        `x[ ] ={ 5, -3, -1, -2, -2, 1, 4, 3, 1, 5, -8}`
+      - |-
+        `x[ ] ={ -1, -2, -2, 1, 4, 3, 1, 5, -8, 5, -3 }`
+      - |-
+        `x[ ] ={ -2,	0, -1, -1, 2, 5, 4, 2, 6, -7, 6 }`
+      - |-
+        `x[ ] ={ -1, -2, -2, 1, 4, 3, 1, 5, -8, 5 }`
+    correct-answers: [2]
+
+  - question: |-
+      Data je deklaracija promenjivih i deo programskog koda:
+
+      ```c
+      int x[40] ={5, 8, 1, 2, 2, 6, 6, 6, 5};
+      int br=0, i,n, j;
+      for(i=0;i<n;i++){
+          j=0;
+          while(j<i && x[j]!=x[i]) j++;
+          if(i==j) br++;
+      }
+      ```
+
+      Izračunati vrednost koju će promenljiva `br` imati po izvršenju `for` ciklusa.
+    index-2016: 62
+    answers:
+      - 7
+      - 10
+      - 5
+      - 6
+    correct-answers: [3]
+  
+  - question: |-
+      Sortiranje predstavlja proces preuređivanja skupa podataka po nekom uređenom poretku. Dat je deo koda na programskom jeziku C koji predstavlja jedan od algoritama za sortiranje. Analizirati dati kod i od ponuđenih odgovora izabrati kom algoritmu sortiranja pripada:
+
+      ```c
+      for(i=1;i<n;i++) { 
+      temp=a[i];
+      j=i-1;
+      while(j>=0 && a[j]>temp) a[j+1]=a[j--];
+      a[j+1]=temp;
+      }
+      ```
+    index-2016: 63
+    answers:
+      - selection sort
+      - shell sort
+      - boubble sort
+      - comare sleection sort
+      - insertion sort
+    correct-answers: [5]
+
+  - question: |-
+      Sa leve strane je dat redni broj, a sa desne strane sadržaj linije koda napisan u programskom jeziku C. Neke od datih naredbi će izazvati grešku ili pri kompajliranju ili pri izvršenju koda:
+
+      1. `int *poc1, a=10;`
+      2. `double *poc2;`
+      3. `poc1=&8;`
+      4. `poc1=&a;`
+      5. `poc2=poc1;`
+
+      Zaokružiti redni broj ispred odgovora u kome su navedene oznake naredbi koje izazivaju grešku:
+    index-2016: 64
+    answers:
+      - 1, 2, 3
+      - 3, 5
+      - 1, 3, 5
+      - 2, 5
+    correct-answers: [2]
+
+  - question: |-
+      U programskom jeziku C data je naredba koja deklariše i inicijalizuje promenljive `a`, `b` i `c`.
+
+      ```c
+      struct elem1{
+            int x,y;
+      };
+      struct elem{
+            struct elem1 poz;
+            int oblik;
+      };
+      struct elem a = {{1,5},3}, *b, c;
+      b=malloc(sizeof(struct elem));
+      ```
+
+      Koja je naredba dodele između deklarisanih promenljivih netačno napisana:
+    index-2016: 65
+    answers:
+      - |-
+        ```c
+        c.poz.x = a.poz.x;
+        c.poz.y = a.poz.y;
+        c.oblik = a.oblik;
+        ```
+      - |-
+        ```c
+        b->poz.x = a.poz.x;
+        b->poz.y = a.poz.y;
+        b->oblik = a.oblik;
+        ```
+      - |-
+        ```c
+        c = a;
+        ```
+      - |-
+        ```c
+        b = a;
+        ```
+      - |-
+        ```c
+        b = &a;
+        ```
+      - |-
+        ```c
+        *b = a;
+        ```
+    correct-answers: [4]
+
+  - question: |-
+      Dat je deo koda u programskom jeziku C. Proceniti koji od navedenih iskaza tačno određuje šta će se desiti nakon njegovog izvršavanja.
+
+      ```c
+      int n=10, *poc, *x = (int*)malloc(n*sizeof(int));
+      for(poc=x; poc<x+n; poc++) *poc=0;
+      ```
+    index-2016: 66
+    answers:
+      - Izvršavanjem koda statički se rezerviše (alocira) memorija za smeštanje niza i vrši se inicijalizacija prolaskom kroz niz pomoću pokazivača.
+      - Izvršavanjem koda definiše se niz u dinamičkoj zoni memorije i inicijalizuje prolaskom kroz niz pomoću indeksa.
+      - Izvršavanjem koda definiše se niz u dinamičkoj zoni memorije i inicijalizuje prolaskom kroz niz pomoću pokazivača.
+      - Izvršavanjem koda statički se alocira memorija za niz i vrši se inicijalizacija prolaskom kroz niz pomoću indeksa.
+    correct-answers: [3]
+
+  - question: |-
+      Dat je kod rekurzivne funkcije napisan u programskom jeziku C:
+
+      ```c
+      void prikaz(int k, int n){
+        printf("%d\t",k);
+        if(k<n) prikaz(k+1,n);
+        printf("%d\t",k);
+      }
+      ```
+      Proceniti šta će se desiti ako se funkcija pozove naredbom: `prikaz(4,10);`
+    index-2016: 67
+    answers:
+      - 4 5 6 7 8 9 10
+      - 4 5 6 7 8 9 10 9 8 7 6 5 4
+      - 4 5 6 7 8 9 10 10 9 8 7 6 5 4
+      - 10 9 8 7 6 5 4
+    correct-answers: [3]
+
+  - question: |-
+      Dat je kod rekurzivne funkcije napisan u programskom jeziku C. Proceniti šta će se desiti nakon njenog izvršavanja.
+
+      ```c
+      int fun(int a[], int n)
+      {
+        return (n>0) ? a[0] + fun(a+1, n-1) : 0;
+      }
+      ```
+    index-2016: 68
+    answers:
+      - Sortira niz `a` od `n` elemenata u rastućem redosledu.
+      - Svaki element niza `a` od `n` elemenata inkrementuje.
+      - Svaki element niza `a` od `n` elemenata uvećava za vrednost prvog elementa niza a.
+      - Izračunava sumu elemenata niza `a` od `n` elemenata.
+      - Obrće elemente niza `a` od `n` elemenata.
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod funkcije `fun()` napisane u programskom jeziku C. Izabrati kojoj funkciji iz standardne biblioteke funkcija `ctype.h` odgovara data funkcija.
+
+      ```c
+      int fun(char c)
+      {
+      return ((c>='a'&&c<='z') ||
+                    (c>='A'&&c<='Z') ||
+                    (c>='0'&&c<='9')) ? 1 : 0;
+                   
+      }
+      ```
+    index-2016: 69
+    answers:
+      - |-
+        `isupper`
+      - |-
+        `isalpha`
+      - |-
+        `gets`
+      - |-
+        `strncat`
+      - |-
+        `atoi`
+      - |-
+        `strchr`
+      - |-
+        `stricmp`
+      - |-
+        `isalnum`
+    correct-answers: [8]
+
+  - question: |-
+      Dat je deo koda u programskom jeziku C koji predstavlja definiciju funkcije sa prototipom `*(c+i)int x[], int n)`. Proceniti šta vraća definisana funkcija.
+
+      ```c
+      int *trazi(int x[], int n)
+      {
+            int *poc=x;
+
+            while(poc<x+n && (*poc<10 || *poc>99)) poc++;
+            if(poc==x+n) return NULL;
+                  else return poc;
+      }
+      ```
+
+      Odrediti iskaz koji tačno opisuje povratnu vrednost funkcije:
+
+    index-2016: 70
+    answers:
+      - Vraća vrednost prvog dvocifrenog broja niza `x` od `n` elemenata, a ako dvocifrenog broja nema vraća `NULL`.
+      - Vraća vrednost poslednjeg pozitivnog dvocifrenog broja niza `x` od `n` elemenata, a ako nema pozitivnih dvocifrenih brojeva, vraća `NULL`.
+      - Vraća adresu prvog pozitivnog dvocifrenog broja niza `x` od `n` elemenata, a ako nema pozitivnih dvocifrenih brojeva, vraća pokazivač na početak niza.
+      - Vraća adresu prvog pozitivnog dvocifrenog broja niza `x` od `n` elemenata, a ako niz nema pozitivnih dvocifrenih brojeva, vraća `NULL`.
+      - Vraća adresu poslednjeg pozitivnog dvocifrenog broja u nizu `x` od `n` elemenata ili `NULL` ako niz nema pozitivnih dvocifrenih brojeva.
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod funkcije `fun()` napisane u programskom jeziku C. Izabrati kojoj funkciji iz standardne biblioteke funkcija `ctype.h` odgovara data funkcija.
+
+      ```c
+      int fun(char c)
+      {
+          return (c>='A'&& c<='Z') ? 1 : 0;
+      }
+      ```
+    index-2016: 71
+    answers:
+      - |-
+        `isupper`
+      - |-
+        `isalpha`
+      - |-
+        `gets`
+      - |-
+        `strncat`
+      - |-
+        `atoi`
+      - |-
+        `strchr`
+      - |-
+        `strcmp`
+    correct-answers: [1]
+
+  - question: |-
+      Dat je kod funkcije fun(...) napisane u programskom jeziku C. Izabrati kojoj standardnoj funkciji odgovara data funkcija.
+
+      ```c
+      int fun(char *s) {
+            int n, sign;
+            while(*s==' ' || *s=='\t') s++;
+            sign = (*s=='-') ? -1 : 1;
+            if(*s=='+' || *s=='-') s++;
+            for(n=0; *s>='0'&& *s<='9'; s++) n=10*n+ *s - '0';
+            return (!*s) ? sign*n : 0;
+      }
+      ```
+    index-2016: 72
+    answers:
+      - |-
+        `isupper`
+      - |-
+        `isalpha`
+      - |-
+        `gets`
+      - |-
+        `strncat`
+      - |-
+        `atoi`
+      - |-
+        `strchr`
+      - |-
+        `strcmp`
+    correct-answers: [5]
+
+  - question: |-
+      Dat je kod funkcije `fun()` napisane u programskom jeziku C. Izabrati kojoj standardnoj funkciji odgovara data funkcija.
+
+      ```c
+      char *fun(char *s) {
+      char c,*temp;
+          temp=s;
+      while((c=getchar())!='\n')*temp++=c;
+          *temp='\0';
+      return s;
+      }
+      ```
+    index-2016: 73
+    answers:
+      - |-
+        `isupper`
+      - |-
+        `isalpha`
+      - |-
+        `gets`
+      - |-
+        `strncat`
+      - |-
+        `atoi`
+      - |-
+        `strchr`
+      - |-
+        `strcmp`
+    correct-answers: [3]
+
+  - question: |-
+      Dat je kod funkcije `fun(...)` napisane u programskom jeziku C. Analizirati kod i odrediti kojoj standardnoj funkciji odgovara data funkcija.
+
+      ```c
+      int fun(char *s, char *t) {
+          char tempt, temps;
+          while(*s && *t){
+              if(*t>='A'&& *t<='Z') tempt = 'a' + *t -'A';
+              else tempt=*t;
+              if(*s>='A'&& *s<='Z') temps = 'a' + *s -'A';
+              else temps=*s;
+              if(temps != tempt) return temps - tempt;
+              else s++, t++;
+          }
+          return *s - *t;
+      }
+      ```
+    index-2016: 74
+    answers:
+      - |-
+        `isupper`
+      - |-
+        `isalpha`
+      - |-
+        `gets`
+      - |-
+        `strncat`
+      - |-
+        `strchr`
+      - |-
+        `strcmp`
+    correct-answers: [6]
+
+  - question: |-
+      Kod dat u tekstu zadatka treba realizovati pomoću jedne `if` naredbe. Koja je naredba u pitanju:
+
+      ```c
+      if(x>1)
+      {
+          if(x<6)
+              y=4;
+      }
+      ```
+    index-2016: 75
+    answers:
+      - |-
+        `if(x>1 && x<6) y=4;`
+      - |-
+        `if(x>1 || x<6) y=4;`
+      - |-
+        `if(x<1 || x>6) y=4;`
+      - |-
+        `if(!(x<=1 || x>=6)) y=4`
+    correct-answers: [1,4]
+
+  - question: |-
+      Navedeni su iskazi koji se odnose na definiciju `while` ciklusa. Koji od ovih iskaza su **tačni**:
+    index-2016: 76
+    answers:
+      - |-
+        `While` ciklus se izvršava sve dok je uslov logička neistina (jednak nuli),
+      - |-
+        `While` ciklus se koristi kada se zna koliko će se puta ciklus izvršavati,
+      - U `while` ciklusu se uvek prvo proverava da li je uslov logička istina, te ako jeste naredba se izvršava,
+      - Kod `while` ciklusa se može desiti da se telo ciklusa ne izvrši nijednom (na početku uslov njije zadovoljen).
+    correct-answers: [3,4]
+
+  - question: |-
+      Navedeni su iskazi koji se odnose na definiciju `do while` ciklusa. Koji od ovih iskaza su **tačni**:
+    index-2016: 77
+    answers:
+      - Korisit se kada se ne zna koliko će se puta ciklus ponavljati.
+      - Prvo se izvršava telo ciklusa, a zatim izračunava vrednost logičkog izraza. Ako se dobije logička neistina ciklus se ponovo izvršava.
+      - Ciklus se izvršava kada uslov dobija vrednost logičke istine.
+      - Ciklus se izvršava barem jednom.
+    correct-answers: [1,4]
+
+  - question: |-
+      U programu na programskom jeziku C, izvršena je sledeća deklaracija, a kasnije i rezervacija memorijskog prostora za niz realnih brojeva obične tačnosti, dužine `n`:
+
+      ```c
+      float *B;
+      int n;
+      B=calloc(n,sizeof(float));
+      ``` 
+
+      Označiti ispravno napisane naredbe za prikaz vrednosti `i`-tog elementa niza B:
+    index-2016: 78
+    answers:
+      - |
+        `printf("%f", B[i]);`
+      - |
+        `printf("%f", &B[i]);`
+      - |
+        `printf("%f", B+i);`
+      - |
+        `printf("%p", *(B+i));`
+      - |
+        `printf("%f", *(B+i));`
+    correct-answers: [1,5]
+
+  - question: |-
+      U programu na programskom jeziku C, izvršena je sledeća deklaracija, a kasnije i rezervacija memorijskog prostora za niz realnih brojeva obične tačnosti, dužine `n`:
+
+      ```c
+      float *B;
+      int n;
+      B=calloc(n,sizeof(float));
+      ```
+
+      Označiti ispravno napisane naredbe za unos vrednosti `i`-tog elementa niza B:
+    index-2016: 79
+    answers:
+      - |-
+        `scanf("%f", B[i]);`
+      - |-
+        `scanf("%f", B+i);`
+      - |-
+        `scanf("%p", B+i);`
+      - |-
+        `scanf("%f", &B[i]);`
+      - |-
+        `scanf("%f", *(B+i));`
+    correct-answers: [2,4]
+
+  - question: |-
+      U programskom jeziku C definisane su strukture koje omogućavaju grupisanje podataka različitih tipova. Definisati strukturni tip podatka **Tucenik** sa poljima **ime** (maksimalno 30 karaktera), **prezime** (maksimalno 30 karaktera) i **prosek** (tipa `double`).
+      Odrediti ispravno napisane deklaracije strukturnog tipa **Tucenik**:
+    index-2016: 80  
+    answers:
+      - |-
+        ```c
+        typedef struct ucenik{
+          char ime[30];
+          char prezime[30];
+          double prosek;
+        } Tucenik;
+        ```
+      - |-
+        ```c
+        typedef struct ucenik{
+          char ime[31];
+          char prezime[31];
+          double prosek;
+        }Tucenik;
+        ```
+      - |-
+        ```c
+        struct ucenik{
+          char ime[30];
+          char prezime[30];
+          double prosek;
+        } Tucenik;
+        ```
+      - |-
+        ```c
+        typedef struct ucenik{
+          char ime[31],prezime[31];
+          double prosek;
+        } Tucenik;
+        ```
+    correct-answers: [2,4]
+
+  - question: |-
+      U programskom jeziku C postoje dve vrste datoteka. Zaokruži redne brojeve ispred navedenih tipova datoteka ako je podela izvršena na osnovu načina smeštanja podataka u datoteku:
+    index-2016: 81
+    answers:
+      - Indeks-sekvencijalna datoteka
+      - Tekstualna datoteka
+      - Binarna datoteka
+      - Zip datoteka
+    correct-answers: [2,3]
+
+  - question: |-
+      Date su naredbe deklaracije promenljivih (sa i bez inicijalizacije vrednosti) napisane na programskom jeziku C. Koje su od ponuđenih ispravno napisane naredbe deklaracije promenljivih.
+    index-2016: 82
+    answers:
+      - |-
+        `int a=b=c=5;`
+      - |-
+        `int a=5, b=5, c=5`
+      - |-
+        `char zn="a";`
+      - |-
+        `long a; b=5; c;`
+      - |-
+        `int a=0xf2;`
+      - |-
+        `char zn='\b';`
+    correct-answers: [2,5,6]
+
+  - question: |-
+      Date su naredbe deklaracije i inicijalizacije jednodimenzionalnog niza celih brojeva u programskom jeziku C. Koje od ponuđenih su ispravno napisane naredbe deklaracije i inicijalizacije jednodimenzionalnog niza:
+    index-2016: 83
+    answers:
+      - |-
+        `int a[10]={1,2,3};`
+      - |-
+        `int a[5]={-3, -2, -1, 0, 1, 2, 3};`
+      - |-
+        `int a[]={10,20,30,40,50};`
+      - |-
+        `int[5] a={1, 2, 3, 4, 5};`
+      - |-
+        `int a={10,20,30,40,50};`
+      - |-
+        `int a[5]={'1', '2', '3', '4', '5'};`
+    correct-answers: [1,3,6]
+  
+  - question: |-
+      Data je naredba deklaracije `int a, b;` Koje su od navedenih **neispravno** napisane naredbe formatiranog unosa podataka imajući u vidu datu deklaraciju:
+    index-2016: 84
+    answers:
+      - |-
+        `scanf("%d%f", &a, &b);`
+      - |-
+        `scanf("%d%*d", &a, &b);`
+      - |-
+        `scanf("%d%d", &a, &b);`
+      - |-
+        `scanf("%d%d", a, b);`
+      - |-
+        `scanf("%d%*d", &a);`
+      - |-
+        `scanf("%5d%5d", &a, &b);`
+    correct-answers: [1,2,4]
+
+  - question: |-
+      Deklarisane su sledeće promenljive:
+
+      ```c
+      float x, z;
+      constfloat y;
+      ```
+
+      Koje su **neispravno** napisane naredbe dodela vrednosti promenljivama:
+    index-2016: 85
+    answers:
+      - |-
+        `x%=y;`
+      - |-
+        `x=+5;`
+      - |-
+        `x+=y+5;`
+      - |-
+        `x=/y+5;`
+      - |-
+        `y=x+z;`
+      - |-
+        `x=z=y+5;`
+    correct-answers: [1,4,5]
+
+  - question: |-
+      Nardbama programskog jezika C, data je deklaracija, a kasnije u kodu i inicijalizacija dinamičke matrice:
+
+      ```c
+      int **mat
+      ```
+
+      Zaokružiti brojeve ispred ponuđenih mogućih nalina obeležavanja vrednosti elementa koji se nalazi u i-toj vrsti i j-toj koloni dinamičke matrice `mat`:
+    index-2016: 86
+    answers:
+      - |-
+        `*(mat[i]+j)`
+      - |-
+        `*(mat+i+j)`
+      - |-
+        `*mat[i]+j`
+      - |-
+        `*(*(mat+i)+j)`
+      - |-
+        `**(mat+i+j)`
+      - |-
+        `mat[i][j]`
+    correct-answers: [1,4,6]
+
+  - question: |-
+      Naredbama programskog jezika C data je deklaracija jedne simboličke konstante i jedne konstante promenljive:
+      ```c
+      #define k 50 ...
+      int m=100; ...
+      ```
+      Odrediti ispravno napisane naredbe deklaracije dvodimenzionalnog niza celih brojeva (matrice):
+    index-2016: 87
+    answers:
+      - |-
+        `int a[k][k];`
+      - |-
+        `int b[k][m];`
+      - |-
+        `int c[k][10];`
+      - |-
+        `int x[100][50];`
+      - |-
+        `int y[10,10];`
+      - |-
+        `int z[m][10];`
+    correct-answers: [1,3,4]
+
+  - question: |-
+      Navedene su tvrdnje koje se odnose na prevođenje koda procesom kombilacije. Odrediti koje od ponuđenih tvrdnji tu **tačne**:
+    index-2016: 88
+    answers:
+      - Kod kompilatorskih jezika, posle svake promene u izvornom kodu neophodno je ponoviti proces prevođenja.
+      - Kod prevođenja kompilacijom prilikom izvršenja programa, u RAM memoriji ralunara se moraju nalaziti i izvorni i izvršni kod.
+      - Kompilator prevodi i izvršava red po red izvornog koda.
+      - Kod kompilacije programa proces prevođenja i proces izvršenja su vremenski nezavisni.
+    correct-answers: [1,4]
+
+  - question: |-
+      Dati su prototipovi funkcija napisani u programskom jeziku C. Odrediti ispravno napisane prototipove funkcija:
+    index-2016: 89
+    answers:
+      - |-
+        `float* pp1 (int a, int b, int c);`
+      - |-
+        `int pp2(int a[][10], int n);`
+      - |-
+        `int pp3(int a[], n; float b);`
+      - |-
+        `void pp4(int *a, int n);`
+      - |-
+        `int pp5(int a[][], int n);`
+      - |-
+        `int pp6(int a[], int n);`
+      - |-
+        `int pp7(int a, b, c);`
+      - |-
+        `float[ ] pp8 (float a[ ], int n);`
+    correct-answers: [1,2,4,6]
+
+  - question: |-
+      Data je `if-else` naredba:
+      ```c
+      if(a==3 || a==5) p++;
+      else p--;
+      ```
+      Odrediti koji kodovi predstavljaju strukturu prikazanu pomoću jedne switch naredbe:
+    index-2016: 90
+    answers:
+      - |-
+        ```c
+        switch(a){
+            case 3: p++;break;
+            case 5: p++;break;
+            default: p--;
+        }
+        ```
+      - |-
+        ```c
+        switch(a){
+            case 3: case 5: p++;break;
+            p--;
+        }
+        ```
+      - |-
+        ```c
+        switch(a){
+            case 3: case 5: p++;break;
+            default: p--;
+        ```
+      - |-
+        ```c
+        switch(a){
+            case 3: case 5: p++;
+            default: p--;
+        }
+        ```
+    correct-answers: [1,3]
+
+  - question: |-
+      Odrediti koje od ponuđenih tvrdnji predstavljaju tačne nastavke izjave koja se odnosi na povratnu vrednost funkcije `fopen`: Pri pokušaju da datoteku otvorimo za pisanje, funkcija `fopen`...
+    index-2016: 91
+    answers:
+      - |-
+        Ako datoteka ne postoji, kreira praznu datoteku, postavlja se na njen početak i vraća pokazivač na tu datoteku.
+      - |-
+        Vraća NULL pokazivač ako datoteka ne postoji.
+      - |-
+        Ako datoteka postoji, izlazi upozorenje da će njen sadržaj biti uništen pri otvaranju.
+      - |-
+        Ako datoteka ne postoji, izaziva grešku koja dovodi do pucanja programa.
+      - |-
+        Ako datoteka postoji, uništava njen sadržaj bez upozorenja.
+    correct-answers: [1,5]
+
+  - question: |-
+      U programskom jeziku C je deklarisana nizovna promenljiva:
+      `int niz[10];`
+
+      Odrediti ispravno napisane naredbe čitanja niza celih brojeva dužine 10 iz binarnog fajla na koji pokazuje pokazivač `*in`:
+    index-2016: 92
+    answers:
+      - |-
+        `fread(niz, sizeof (int),	10, in);`
+      - |-
+        `fread(&niz, sizeof (int),	10, in);`
+      - |-
+        `fread(&niz, sizeof niz,	1, in);`
+      - |-
+        `fread(niz, sizeof niz,	1, in);`
+      - |-
+        `fread(niz, sizeof (niz), 1, *in);`
+      - |-
+        `fread(niz, sizeof (int)*10, in);`
+    correct-answers: [1,4]
+
+  - question: |-
+      Dat je prototip funkcije napisan u programskom jeziku C:
+
+      ```c
+      int Zbir(int n, int m, float **a)
+      ```
+
+      U `main` funkciji date su sledeće deklaracije promenljivih:
+      ```c
+      float M[20][50], *V[20], W;
+      int i, j;
+      ```
+
+      Imajući u vidu prototip funkcije, zaokružiti brojeve ispred navedenih stvarnih parametara koje se prilikom pozivanja funkcije Zbir mogu naći na mestu fiktivnog parametra a:
+    index-2016: 93
+    answers:
+      - |-
+        `V[i]`
+      - |-
+        `M[i]`
+      - |-
+        `M[i][j]`
+      - |-
+        `W`
+      - |-
+        `M`
+      - |-
+        `V`
+    correct-answers: [5,6]
+
+  - question: |-
+      U programskom jeziku C deklarisan je strukturni tip podataka `Ucenik`, a zatim i promenljiva tipa `Ucenik`:
+
+      ```c
+      typedefstruct
+      {
+      char ime[50];
+      int razred;
+      int ocene[10];
+      }Ucenik; …
+      int i; Ucenik x;
+      ```
+
+      Odrediti ispravne načine pristupa poljima strukturne promenljive x:
+    index-2016: 94
+    answers:
+      - |-
+        `x.ocene[i]`
+      - |-
+        `*x.razred`
+      - |-
+        `x->ime`
+      - |-
+        `x[i].ocene`
+      - |-
+        `x.ime `
+    correct-answers: [1,5]
+
+  - question: |-
+      U programskom jeziku C deklarisan je strukturni tip podataka `Putovanje`, a zatim i promenljiva tipa `*Putovanje`:
+
+      ```c
+      typedef struct
+      {
+          char start[50], cilj[50];
+          int kilometraza;
+      }Putovanje; …
+      Putovanje *p;
+      ```
+
+      Odrediti ispravne načine pristupa poljima strukturne promenljive:
+    index-2016: 95
+    answers:
+      - |-
+        `*p->kilometraza`
+      - |-
+        `(*p).kilometraza`
+      - |-
+        `&p->kilometraza`
+      - |-
+        `p->start`
+      - |-
+        `*(p).start`
+    correct-answers: [2,4]
+
+  - question: |-
+      Data je naredba u C jeziku, koja temperaturu u Celzijusima temc pretvara u temperaturu u Farenhajtima `temf`. Podaci `temc` i `temf` su realni brojevi obične tačnosti. Proceniti koji izrazi daju tačno rešenje.
+    index-2016: 96
+    answers:
+      - |-
+        `temf=(9/5)*temc+32;`
+      - |-
+        `temf=9/5*temc+32;`
+      - |-
+        `temf=9*temc/5+32;`
+      - |-
+        `temf=32+9*temc/5;`
+    correct-answers: [3,4]
+  
+  - question: |-
+      U programskom jeziku C napisati funkciju `xcalloc` koja dodeljuje memorijski prostor vektoru od `n` elemenata i vrši inicijalizaciju njegovih elemenata. Svaki element vektora zauzima memorijski prostor veličine `size` bajtova. U sedmu liniju koda dopisati naredbu koja nedostaje da bi funkcija izvršavala svoj zadatak.
+      
+      ```c
+      1. void *xcalloc(int n, int siz)
+      2. {
+      3.    int i;
+      4.    char *p, *q;
+      5.
+      6.    if((p = q = malloc(n*size)) != NULL){
+      7.    _____________________________________
+      8.    }
+      9.    return q;
+      10. }
+      ```
+    
+      Zaokružiti brojeve ispred naredbi koje su moguće rešenje ovog problema:
+    index-2016: 97
+    answers:
+      - |-
+        `for(i=0; i<n*size; i++) *p++=0;`
+      - |-
+        `for(i=0; i<size; i++) p++=0;`
+      - |-
+        `for(i=0; i<n*size; i++) *p=0;`
+      - |-
+        `for(i=0; i<n*size; *p++=0, i++);`
+    correct-answers: [1,4]
+
+  - question: |-
+      Dat je prototip funkcije napisan u programskom jeziku C:
+
+      ```c
+      void Saberi(int n, int *a, int *b);
+      ```
+
+      U main funkciji date su sledeće deklaracije promenljivih:
+      ```c
+      int x[50][50], y[50], m, j, i;
+      ```
+
+      Odrediti koji su ispravno napisani pozivi deklarisane funkcije:
+    index-2016: 98
+    answers:
+      - |-
+        `Saberi(m, y[i], y[i+1]);`
+      - |-
+        `Saberi(y[i], x[i], x[i+1]);`
+      - |-
+        `Saberi(m, y, x[i][j]);`
+      - |-
+        `Saberi(y, x[i], x[i+1]);`
+      - |-
+        `Saberi(10, y, x[0]);`
+      - |-
+        `Saberi(x[i][j], x[i], x[j]);`
+    correct-answers: [2,5,6]
+
+  - question: |-
+      Dat je prototip funkcije napisan u programskom jeziku C:
+
+      ```c
+      void Umetni(char *a, char k);
+      ```
+
+      U `main` funkciji date su sledeće deklaracije promenljivih:
+
+      ```c
+      char s1[20], *s2, s3;
+      ```
+
+      Odrediti koji su ispravno napisani pozivi deklarisane funkcije:
+    index-2016: 99
+    answers:
+      - |-
+        `Umetni(s2, s1[i]);`
+      - |-
+        `Umetni(s2, s1);`
+      - |-
+        `Umetni(s2, 'A');`
+      - |-
+        `Umetni(s1, s3);`
+      - |-
+        `Umetni(*s2, s3);`
+      - |-
+        `Umetno(s3, &s1);`
+    correct-answers: [1,3,4]
+
+  - question: |-
+      U programskom jeziku C data je naredba koja deklariše promenljive `a`, `b` i `c`.
+
+      ```c
+      struct elem1{
+            int x,y;
+      };
+      struct elem{
+            struct elem1 poz;
+            int oblik;
+      };
+      struct elem a = {{1,5},3}, *b, c;
+      ```
+
+      **Neposredno za datog koda** slede naredbe dodele. Zaokružiti brojeve ispred naredbi dodele koje će u datoj situaciji izazvati grešku:
+    index-2016: 100
+    answers:
+      - |-
+        ```c
+        c.poz.x=a.poz.x;
+        c.poz.y=a.poz.y;
+        c.oblik=a.oblik;
+        ```
+      - |-
+        ```c
+        b->poz.x=a.poz.x;
+        b->poz.y=a.poz.y;
+        b->oblik=a.oblik;
+        ```
+      - |-
+        `c=a;`
+      - |-
+        `b=a;`
+      - |-
+        `b=&a;`
+      - |-
+        `*b=a;`
+    correct-answers: [2,4,6]
+    

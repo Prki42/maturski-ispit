@@ -1,0 +1,45 @@
+.answer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+}
+
+.isCorrect {
+    min-width: 7ch;
+    text-align: right;
+    margin-left: auto;
+}
+
+.questionBlock li p{
+    margin: 0.6em 0;
+}
+
+.answer :hover {
+    cursor: pointer;
+}
+
+.questionBlock li pre {
+    margin: 5px 0;
+}
+
+.questionBlock li pre div {
+    margin: 0 !important;
+}
+
+.questionBlock {
+    padding: 2%;
+    border-radius: 6px;
+}
+
+.question li {
+    margin-bottom: 10px;
+}
+
+.correctAnswerBg {
+    background-color: rgba(0, 128, 0, 0.25);
+}
+
+.incorrectAnswerBg {
+    background-color: rgba(199, 1, 1, 0.20)
+}

@@ -1,0 +1,5 @@
+.mdBlock code, .mdBlock code * {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9375em;
+    white-space: pre-wrap;
+}

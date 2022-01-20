@@ -1,0 +1,693 @@
+---
+questions:
+  - question: |-
+      Data je naredba deklaracije, a zatim i naredba formatiranog izlaza:
+      
+      ```c
+      float x = 5.56;
+      printf("x = %f\tx = %g\n", x, x);
+      ```
+
+      Nakon izvršavanja naredbi na ekranu će se prikazati vrednosti promenljivih u zadatom formatu
+    index-2016: 1
+    answers:
+      - |-
+        `x = 5.560000e+000 x = 0`
+      - |-
+        `x = 5.560000      x = 5.560000e+000`
+      - |-
+        `x = 5.560000      x = 5.56`
+      - |-
+        `x = 5.56          x = 5.560000e+000`
+    correct-answers: [3]
+
+  - question: |-
+      U programskom jeziku C podaci su predmet obrade. Svaki podatak ima određene osobine koje čine tip podatka. Tip podatka je određen i definisan:
+    index-2016: 2
+    answers:
+      - Skupom mogućih vrednosti koje može da uzme podatak
+      - Skupom operacija koje mogu da se izvrše nad podacima
+      - Skupom mogućih vrednosti koje može da uzme podatak i skupom operacija koje mogu da se izvrše nad podacima
+    correct-answers: [3]
+
+  - question: |-
+      Data je deklaracija nabrojivog tipa podatka boja:
+
+      ```c
+      enum boja {crna, plava, zelena, crvena=4, bela=15};
+      ```
+    index-2016: 3
+    answers:
+      - crna =0, plava =1, zelena =2, crvena =4, bela =15
+      - crna =1, plava =2, zelena =3, crvena =4, bela =15
+      - crna =255, plava =254, zelena =253, crvena =4, bela =15
+    correct-answers: [1]
+  
+  - question: |-
+      Deklarisana je celobrojna promenljiva i dodeljena joj je vrednost logičkog izraza:
+      
+      ```c
+      int x;
+      x = 1==10>5;
+      ```
+      
+      Imajući u vidu prioritet operatora, odrediti vrednost promenljive x posle ivršenja ove naredbe
+    index-2016: 4
+    answers:
+      - Promenljiva dobija vrednost logičke neistine tj. X = 0
+      - Promenljiva dobija vrednost logičke istine tj. X = 1
+      - Vrednost logičkog izraza se ne može dodeliti celobrojnoj promenljivoj
+      - Promenljiva dobija vrednost logičke istine, tj. bilo koji broj različit od 0
+    correct-answers: [2]
+  
+  - question: |-
+      Programski jezik C ima u svojim bibliotekama funkcije koje mogu da se koriste pozivanjem za određene parametre. Funkcija `rand()` iz biblioteke `stdlib.h` se često koristi kao generator slučajnih brojeva. Dat je kod:
+
+      ```c
+      int slucajniBroj, broj;
+      slucajniBroj = rand() % broj;
+      ```
+
+      Koji iskaz definiše opseg generisanog slučajnog broja:
+    index-2016: 5
+    answers:
+      - Funkcija generiše slučajan broj sa intervala 1 do (broj).
+      - Funkcija generiše slučajan broj sa intervala 0 do (broj - 1).
+      - Funkcija generiše slučajan broj sa intervala 0 do (broj).
+      - Funkcija generiše slučajan broj sa intervala 1 do (broj - 1).
+    correct-answers: [2]
+
+  - question: |-
+      Data je naredba u C jeziku. Naredba proverava da li je broj paran ili neparan. Proceniti koja naredba daje tačno rešenje.
+    index-2016: 6
+    answers:
+      - |-
+        ```c
+        (broj % 2 == 1) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```
+      - |-
+        ```c
+        (broj % 2) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```
+      - |-
+        ```c
+        (broj % 2 == 0) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```
+      - |-
+        ```c
+        (broj & 1) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```
+      - |-
+        ```c
+        (broj & 0x1) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```
+      - |-
+        ```c
+        (broj & 1 == 1) ? printf("PARAN!!") : printf("NEPARAN!!");
+        ```  
+    correct-answers: [3]
+
+  - question: |-
+      Data je deklaracija promenjivih `int a, b, c;`
+      Izračunati vrednosti koje će promenljive imati po izvršenju sledećih naredbi:
+
+      ```c
+      a = c = 6;
+      b = 7;
+      a = b++ - 2;
+      c = ++b - 2;
+      ```
+    index-2016: 7
+    answers:
+      - a =5 b = 9 c = 7
+      - a = 4 b=6 c = 7
+      - a = 4 b = 5 c = 8
+      - a = 6 b = 6 c = 6
+    correct-answers: [1]
+  
+  - question: |-
+      Kojom ključnom reči pri kodiranju u programskom jeziku C, u naredbi višestrukog grananja obeležavaju vrednosti za koje se ulazi u pojedine grane:
+    index-2016: 8
+    answers:
+      - |-
+        `switch`
+      - |-
+        `break`
+      - |-
+        `return`
+      - |-
+        `case`
+    correct-answers: [4]
+
+  - question: |-
+      Date su četiri varijante C koda kojim se određuje vrednost maksimuma između dva celobrojna podatka. Odrediti koji je tačno napisan kod:
+    index-2016: 9
+    answers:
+      - |-
+        ```c
+        max=b;
+        if (max<a) max=a;
+        printf("\nMaksimum = %d", &max);
+        ```
+      - |-
+        ```c
+        b=max;
+        if (max<a) max=a;
+        printf("\nMaksimum = %d", &max);
+        ```
+      - |-
+        ```c
+        max=b;
+        if (max<a) max=a;
+        printf("\nMaksimum = %d", max);
+        ```
+      - |-
+        ```c
+        max=a;
+        if (b>max) max=b;
+        printf("\nMaksimum = %d", max);
+        ```
+    correct-answers: [3]
+
+  - question: |-
+      Data je `if-else` naredba:
+
+      ```c
+      if (a==3 || a==5) p++;
+      else p--;
+      ```
+
+      Odrediti koji kod predstavlja datu strukturu prikazanu pomoću jedne `switch` naredbe:
+    index-2016: 10
+    answers:
+      - |-
+        ```c
+        switch(a) {
+          case 3, 5: p++;break;
+          default: p--;
+        }
+        ```
+      - |-
+        ```c
+        switch(a) {
+          case 3: case 5: p++;break;
+          p--;
+        }
+        ```
+      - |-
+        ```c
+        switch(a) {
+          case 3: case 5: p++;break;
+          default: p--;
+        }
+        ```
+      - |-
+        ```c
+        switch(a) {
+          case 3: case 5: p++;
+          default: p--;
+        }
+        ```
+    correct-answers: [3]
+  
+  - question: |-
+      Programski jezik C ima naredbe koje omogućavaju promenu toka upravljanja u neku drugu tačku programa. Jedna od naredbi za promenu toka izvršenja programa, omogućava:
+
+      - prevremeno završavanje ciklusa *(`for`, `while` ili `do-while`)* skakanjem na prvu naredbu neposredno iza ciklusa
+      - preskakanje sledećih naredbi unutar selekcije `switch`
+      - očuvanje strukturnosti programa izvan ciklusa
+
+      Pomoću koje naredbe se postižu gore navedeni iskazi:
+    index-2016: 11
+    answers:
+      - |-
+        `continue`
+      - |-
+        `gotoxy`
+      - |-
+        `break`
+      - |-
+        `sizeof`
+    correct-answers: [3]
+  
+  - question: |-
+      Data je deklaracija promenljivih i deo programskog koda:
+
+      ```c
+      int j, m, x[100], prom;
+      prom = 0;
+      for(j=m-1;j>=0;j++) prom+=x[j];
+      ```
+
+      Opisati šta radi `for` ciklus sa elementima niza `x`.
+    index-2016: 12
+    answers:
+      - Sortira niz `x` od `n` elemenata u rastućem redosledu
+      - Sabira elementa niza `x` on `n` elemenata
+      - Invertuje (obrće) elemente niza `x` of `n` elemenata
+      - Određuje broj pozitivnih elemenata niz `x` od `n` elemenata
+      - Rotira elemente niza `x` od `n` elemenata za jedno mesto u desno
+    correct-answers: [2]
+  
+  - question: |-
+      Jedna od naredbi za promenu toka izvršenja toka programa u programskom jeziku C, omogućava:
+
+      - u slučaju da se nalazi unutar naredbi `while` i `do-while`, prelazak na ponovno ispitivanje uslova ciklusa
+      - u slučaju naredbe `for` prelazak na izvršavanje izraza 2 (tj. uslova)
+      - u slučaju ugnježdenih ciklusa, preskaču se samo preostale naredbe najdubljeg ciklusa
+      - naredba narušava struktuiranost programa van ciklusa
+      - ako se nalazi unutar nardbe `switch` koja se nalazi unutar nekog ciklusa, skok se vrši na kraj tog ciklusa uz naravno preskakanje naredbi koje su bile unutar selekcije `switch`
+
+      Odrediti za koju naredbu važe gore navedeni iskazi:
+    index-2016: 13
+    answers:
+      - |-
+        `continue`
+      - |-
+        `gotoxy`
+      - |-
+        `break`
+      - |-
+        `sizeof`
+    correct-answers: [1]
+
+  - question: |-
+      Dati su iskazi koji sadrže definiciju niza. Za koji od ponuđenih tačno definišu niz:
+    index-2016: 14
+    answers:
+      - Niz je osnovni tip podataka koji se sastoji od jednog podatka.
+      - Niz je složeni tip podataka koji se sastoji od više podataka različitog tipa, a koji mogu biti osnovni ili izvedeni podaci.
+      - Niz je složeni tip podataka koji se sastoji od više podataka istog tipa, a koji su podaci osnovnog tipa.
+      - Niz je složen tip podatka koji se sastoji od više podataka istog tipa, a koji mogu biti osnovni ili izvedeni.
+    correct-answers: [4]
+      
+  - question: |-
+      Ako se naredbom `p++` vrednost pokazivača `p` uveća za 2, odrediti tačnu deklaraciju pokazivača `p`:
+    index-2016: 15
+    answers:
+      - |-
+        ```c
+        char *p
+        ```
+      - |-
+        ```c
+        short *p
+        ```
+      - |-
+        ```c
+        long *p
+        ```
+      - |-
+        ```c
+        float *p
+        ```
+    correct-answers: [2]
+  
+  - question: |-
+      Naredbom programskog jezika C deklarisan je pokazivač `p` kao pokazivač na ceo broj, kome je u nastavku koda dodeljen prostor za smeštanje vektora celih brojeva dužine `n`. Odrediti ispravno napisanu naredbu kojom se prostor na koji pokazuje pokazivač `p`, samnjuje za 2 elementa.
+    index-2016: 16
+    answers:
+      - |-
+        ```c
+        p = calloc(p, sizeof(int)*(n-2));
+        ```
+      - |-
+        ```c
+        calloc(p, sizeof(int)*(n-2));
+        ```
+      - |-
+        ```c
+        p = realloc(p, n-2);
+        ```
+      - |-
+        ```c
+        p = realloc(p, sizeof(int)*(n-2));
+        ```
+      - |-
+        ```c
+        realloc(p, n-2);
+        ```
+      - |-
+        ```c
+        realloc(p, sizeof(int)*(n-2));
+        ```
+    correct-answers: [4]
+  
+  - question: |-
+      U programu napisanom na programskom jeziku C data je deklaracija dvodimenzionalnog polja i njegova inicijalizacija:
+
+      ```c
+      unsigned a[3][4]={{2,4},{4,6,7,3},{2,1,3}};
+      ```
+
+      Odrediti koje vrednosti će dodeliti elementima deklarisane matrice `a`.
+    index-2016: 17
+    answers:
+      - |-
+        ```
+        [0 0 2 4]
+        [4 6 7 3]
+        [0 2 1 3]3x4
+        ```
+      - |-
+        ```
+        [2 4 4 6]
+        [7 3 2 1]
+        [0 0 0 0]3x4
+        ```
+      - |-
+        ```
+        [2 4 0 0]
+        [4 6 7 3]
+        [2 1 3 0]3x4
+        ```
+      - |-
+        ```
+        [2 0 0 4]
+        [4 6 7 3]
+        [2 1 0 3]3x4
+        ```
+    correct-answers: [3]
+  
+  - question: |-
+      U programskom jeziku C definisana je pokazivačke promenjiva. Odrediti koja od ponuđenih je tačna definicja pokazivačke promenjive:
+    index-2016: 18
+    answers:
+      - Pokazivač je promenljiva koja sadrži vrednost druge promenljive, konstante ili objekta.
+      - Pokazivač je promenljiva koja sadrži adresu druge promenjive, objekta ili funkcije.
+      - Pokazivač je promenljiva koja predstavlja alijas druge promenljive, objekta ili funkcije.
+      - Pokazivač je složeni tip podataka koji u sebi sadrži adrese promenljivih na koje pokazuje.
+    correct-answers: [2]
+  - question: |-
+      U programu napisanom u programskom jeziku C data je deklaracija dvodimenzionalnog polja:
+
+      ```c
+      unsigned i, j, a[MAXV][MAXK];
+      ```
+
+      Odrediti vezu između elemenata matrice `a` sa indeksima `i` i `j` i vrednosti pokazivača koji pokazuje na taj element. Koja od veza je ispravno napisana:
+    index-2016: 19
+    answers:
+      - |-
+        `a[i][j] <=> *(a + MAXK*i + j)`
+      - |-
+        `a[i][j] <=> *(a + MAXV*i + j)`
+      - |-
+        `a[i][j] <=> *((unsigned *)a + MAXK*i + j)`
+      - |-
+        `a[i][j] <=> *((unsigned *)a + MAXV*i + j)`
+    correct-answers: [3]
+
+  - question: |-
+      Na levoj strani je data definicija funkcije `void zameni(int *a, int *b)`, a na desnoj strani deo koda, napisan na programskom jeziku C, koji poziva definisanu funkciju.
+
+      ```c
+      // Levo
+      void zameni(int *a, int *b)
+      {
+        int temp;
+        *temp = *a;
+        *a = *b;
+        *b = temp;
+      }
+      ```
+
+      ```c
+      // Desno
+      int a = 3, b = 4;
+      zameni(&a, &b);
+      printf("a=%d i b=%d", a, b);
+      ```
+
+      Odrediti koje vrednosti će promenljive `a` i `b` dobiti posle izvršavanja koda.
+    index-2016: 20
+    answers:
+      - a=3 i b=3
+      - a=4 i b=4
+      - a=3 i b=4
+      - a=4 i b=3
+    correct-answers: [4]
+  
+  - question: |-
+      U programskom jeziku C dat je prototip funkcije `funkcija()` i deklarisane su promenljive u funkciji `main()`. U ponuđenim odgovorima dati su pozivi funkcije za deklarisane promenljive.
+
+      ```c
+      void funkcija(int *x, int *y, int **p);
+      void main() {
+        int a=5, b=7, c=15, *poc;
+        poc = &c;
+      }
+      ```
+
+      Odrediti ispravno zapisan poziv deklarisane funkcije:
+    index-2016: 21
+    answers:
+      - |-
+        `funkcija(a, b, &poc);`
+      - |-
+        `funkcija(&a, &b, &poc);`
+      - |-
+        `funkcija(&a, &b, poc);`
+      - |-
+        `c = funkcija(&a, &b, &poc);`
+    correct-answers: [2]
+
+  - question: |-
+      Potrebno je u programskom jeziku C definisati funkciju `pravougaonik()` koja izračunava obim i površinu pravougaonika. Funkcija `pravougaonik()` preko vrednosti funkcije vraća obim pravougaonika a prenosom parametra po referenci i pokazivača `poc` vraća površinu pravougaonika. Ulazni argument funkcije su stranice `a` i `b` koje su tipa `float`. Odrediti koja od defincija funkcije je ispravna.
+    index-2016: 22
+    answers:
+      - |-
+        ```c
+        float pravougaonik(float a, float b, float *poc) {
+          return 2*a+2*b;
+          *poc=a*b;
+        }
+        ```
+      - |-
+        ```c
+        float pravougaonik(float a, float b, float poc) {
+          poc=a*b;
+          return 2*a+2*b;
+        }
+        ``` 
+      - |-
+        ```c
+        float pravougaonik(float a, float b, float &poc) {
+          poc=a*b;
+          return 2*a+2*b;
+        }
+        ```
+      - |-
+        ```c
+        float pravougaonik(float a, float b, float *poc) {
+          *poc=a*b;
+          return 2*a+2*b;
+        }
+        ```
+    correct-answers: [3]
+
+  - question: |-
+      Dat je deo koda programa napisanog u programskom jeziku C. Odrediti šta će se ispisati na ekranu nakon njegovog izvršavanja.
+
+      ```c
+      char s[20]={'A','c','a',' ','j','e','\0','d','o','b','a','r'};
+      char t[12]={'A','c','a',' ','j','e','\0','d','o','b','a','r'};
+      char *poc=s+7;
+      printf("\nString = %s\n",poc);
+      printf("String = %s\n",s+4);
+      printf("Znak = %c\n",*poc);
+      printf("String = %s\n",t+7);
+      ```
+    index-2016: 23
+    answers:
+      - |-
+        String = Aca je dobar
+        String = Aca
+        Znak = A
+        Aca je dobar
+      - |-
+        String = Aca
+        String = je
+        Znak = d
+        Neće prikazati ništa
+      - |-
+        String = dobar
+        String = je
+        Znak = d
+        Nepredvidivo je jer string `t` ima 12 znakova koliko i rezervisani prostor, a poslednji znak nije `\0`
+      - |-
+        String = dobar
+        String = dobar
+        Znak = d
+        Nepredvidivo jer string `t` ima 12 znakova koliko i rezervisani prostor, a poslednji znak nije `\0`
+    correct-answers: [3]
+
+  - question: |-
+      Dat je program napisan na programskom jeziku C koji sadrži funkciju `void zameni(int a, int b)` i funkciju `main()` u kojoj su deklarisane promenljive koje se koriste kao stvarni parametri pri pozivu date funkcije. Analizirati kod i proceniti koje vrednosti promenljivih `a` i `b` će biti ispisane nakon izvršenja programa.
+
+      ```c
+      void zameni(int a, int b)
+      {
+        int temp;
+        temp = a;
+        a = b;
+        b = temp;
+      }
+      int main()
+      {
+        int a = 3, b = 4;
+        zameni(a, b);
+        printf("\n a=%d i b=%d", a, b);
+      }
+      ```
+    index-2016: 24
+    answers:
+      - a=3 i b=3
+      - a=4 i b=4
+      - a=3 i b=4
+      - a=4 i b=3
+    correct-answers: [3]
+
+  - question: |-
+      U programskom jeziku C deklarisane su promenljive i dat je deo koda programa:
+
+      ```c
+      FILE *fp;
+      char str[150];
+      fp = fopen("primer.txt", "r");
+      ```
+
+      Odrediti šta je posledica izvršavanja datog koda.
+    index-2016: 25
+    answers:
+      - Učitava 80 karaktera iz datoteke i smešta u string str.
+      - Učitava maksimalno 150 karaktera iz datoteke i smešta u string str.
+      - Učitava string iz datoteke sve dok se ne učita znak za novi red ili 80 karaktera.
+      - Učitava string iz datoteke sve dok se ne učita znak za novi red ili 150 karaktera.
+    correct-answers: [3]
+
+  - question: |-
+      U programskom jeziku C deklarisane su promenljive i dat je deo koda programa:
+
+      ```c
+      FILE *fp;
+      char str[150]; int br=10;
+      fp=fopen("primer.txt", "r");
+      fseek(fp, br, SEEK_CUR);
+      fgets(str, 80, fp);
+      ```
+
+      Odrediti šta je posledica izvršavanja datog koda.
+    index-2016: 26
+    answers:
+      - Učitava 80 karaktera iz datoteke i smešta u string str.
+      - Učitava maksimalno 150 karaktera iz datoteke i smešta u string str. Ako u datoteci nema 150 karaktera, učita br=10 karaktera.
+      - Učitava string iz datoteke sve dok se ne učita znak za novi red ili 80 karaktera, i to počev od 11. karaktera u odnosu na početak datoteke.
+      - Učitava string iz datoteke sve dok se ne učita znak za novi red ili 150 karaktera, počev od 80. karaktera u datoteci.
+    correct-answers: [3]
+
+  - question: |-
+      U programskom jeziku C deklarisan je strukturni tip podataka Ucenik, a zatim i promenljiva koja predstavlja niz od max 30 učenika:
+
+      ```c
+      typedef struct
+      {
+        char ime[50];
+        int razred;
+        int ocene[10];
+      } Ucenik; …
+      Ucenik T[30];
+      ```
+
+      Odrediti naredbu kojom se drugom učeniku u nizu T upisuje ocena 5 iz matematike, ako znamo da je matematika četvrta ocena u nizu ocena:
+    index-2016: 27
+    answers:
+      - |-
+        `T[0].ocene[3]='5'`
+      - |-
+        `T[1].ocene[4]=5`
+      - |-
+        `T[1].ocene[3]=5`
+      - |-
+        `T.ocene[3]=5`
+    correct-answers: [3]
+  
+  - question: |-
+      U programu napisanom u programskom jeziku C deklarisana je promenljiva pod tipa int. Upotrebom funkcije `fprintf(...)` upisati deklarisan podatak u standardnu izlaznu datoteku.
+
+      Odredi ispravno napisano naredbu:
+    index-2016: 28
+    answers:
+      - |-
+        `fprintf(pod);`
+      - |-
+        `fprintf("%d", pod);`
+      - |-
+        `fprintf("%d", pod, stdin);`
+      - |-
+        `fprintf(stdout, "%d", pod);`
+    correct-answers: [4]
+  
+  - question: |-
+      U programskom jeziku C deklarisan je strukturni tip podataka Ucenik, a zatim i promenljiva koja predstavlja niz od max 30 učenika:
+
+      ```c
+      typedef struct
+      {
+        char naziv[30];
+        int razred, ocena; 
+      } Predmet;
+
+      typedef struct
+      {
+        char ime[20], prezime[20];
+        Predmet predmeti[10];
+      } Ucenik;
+
+      int i; Ucenik T[30];
+      ```
+
+      Odrediti naredbu kojom će se prvom učeniku u nizu T upisati ocena 5 iz matematike, ako znamo da je matematika četvrti predmet u nizu predmeta:
+    index-2016: 29
+    answers:    
+      - |-
+        `T[0]->predmeti[3]->ocena=5`;
+      - |-
+        `T[0].predmeti[3].ocena=5`;
+      - |-
+        `T[0].predmeti[“matematika”].ocena=5`;
+      - |-
+        `T.ocena[3]=5`;
+    correct-answers: [2]
+  
+  - question: |-
+      Zaokružiti broj ispred traženog odgovora. U programskom jeziku C deklarisani su strukturni tipovi podataka `Datum` i `Letovanje`:
+
+      ```c
+      typedef struct
+      {
+        int dan, mesec, godina;
+      } Datum;
+
+      typedef struct
+      {
+        char destinacija[50];
+        Datum polazak, povratak;
+        float cena;
+      } Letovanje
+      ```
+
+      Odrediti ispravno napisanu naredbu deklaracije i inicijalizacije promenljive `x` tipa `Letovanje`, ako je destinacija Rodos, polazak 10.08.2016., a povratak 21.08.2016. Cena je 480€:
+    index-2016: 30
+    answers:
+      - |-
+        `Letovanje x={"Rodos",{2016,8,10},{2016,8,21},480};`
+      - |-
+        `Letovanje x={"Rodos",{10,8,2016},{21,8,2016},480};`
+      - |-
+        `Letovanje x={"Rodos",{10,8,2016,21,8,2016},480};`
+      - |-
+        `Letovanje x={Rodos,{2016,8,10},{2016,8,21},480};`
+      - |-
+        `Letovanje x={"Rodos",480,{2016,8,10},{2016,8,21}};`
+    correct-answers: [2]
