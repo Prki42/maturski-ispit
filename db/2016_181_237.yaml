@@ -1,0 +1,1161 @@
+---
+questions:
+  - question: |-
+      Dat je kod programa u programskom jeziku C#:
+      
+      ```cs
+      namespace TestPrimer{
+      class Program
+        {
+      static void Main(string[] args)
+          {
+      Console.WriteLine(fun(17));
+          }
+      public int fun(int n) {return n;}
+      public void fun(int n) {Console.WriteLine(n);}
+        }
+      }
+      ```
+
+      Analizirati kod i zaokružiti broj ispred očekivanog odgovora:
+    index-2016: 181
+    answers:
+      - -Program ima grešku, jer se ne može odrediti koju verziju preopterećenog metoda `fun(...)` treba pozvati.
+      - Program ima grešku, jer je druga verzija preopterećenog metoda `fun(...)` definisana, ali se nigde ne poziva.
+      - Program se normalno izvršava i prikazuje 17 jedanput.
+      - Program se normalno izvršava i prikazuje 17 dvaput.
+    correct-answers: [1]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C#. Analizirati program i odrediti šta se prikazuje na ekranu kao rezultat njegovog izvršavanja.
+
+      ```cs
+      namespace TestPrimer{
+      class Program{
+      static void Main(string[] args){
+      int [] x= { 0, 1, 2, 3, 4};
+          Inc(x);
+      int [] y= { 0, 1, 2, 3, 4};
+          Inc(y[0]);
+      Console.WriteLine(x[0] + " " + y[0]);
+      }
+      public staic void Inc(int [] a){
+      for(int i = 0; i < a.Lenght; i++) a[i]++;
+      }
+      public static void Inc(int n) {n++;}
+        }
+      }
+      ```
+    index-2016: 182
+    answers:
+      - Poruka o gresci.
+      - 1 0
+      - 2 2
+      - 2 1
+      - 1 1
+    correct-answers: [2]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# i sastoji se od dve klase u jednoj datoteci. Analizirati dati kod i proceniti koja se vrednost polja `b.n` prikazuje naredbom `Console.WriteLine(red sedam)` prilikom izvršavanja ovog programa.
+
+      ```cs
+      namespace TestPrimer{ 
+          class Program{
+              static void Main(string[] args){
+                  int k=0;
+                  Brojac b=newBrojac();
+                  for(int i=0; i<100; i++) Inc(b,k) {
+                      b.n++;
+                      k++;
+                  }
+              }
+          class Brojac{
+              public int n;
+              public Brojac(int n) {this.n = n;}
+              public Brojac() {this.n = 1;}
+          }
+      }
+      ```
+    index-2016: 183
+    answers:
+      - |-
+        `b.n=101`
+      - |-
+        `b.n=100`
+      - |-
+        `b.n=99`
+      - |-
+        `b.n=0`
+      - |-
+        `b.n=1`
+    correct-answers: [1]
+
+  - question: |-
+      Dat je program u programskom jeziku C# u kom je definisan niz i metode `Prosek` koja izračunava srednju vrednost niza. Analizirati dati kod i proceniti šta ce se desiti nakon njegovog izvršavanja.
+
+      ```cs
+      namespace TestPrimer{
+          class Program{
+              static void Main(string[] args) {
+                  double[] niz= {1.0, 2.0, 3.0 };
+                  Console.WriteLine(prosek(niz));
+                  Console.WriteLine(prosek(1, 2, 2, 1, 4));
+                  Console.WriteLine(prosek(new double[] {1, 2, 3}));
+                  Console.WriteLine(prosek(1.0, 2.0, 2.0, 1.0));
+              }
+              public static double prosek(params double[] brojevi) {
+                  double suma=0;
+                  foreach(double elem in brojevi) suma+=elem;
+                  return suma / brojevi.Lenght;
+              }
+          }
+      }
+      ```
+    index-2016: 184
+    answers:
+      - Program ima gresku u prvoj naredbi WriteLine, jer je nepravilan poiv funkcije prosek(niz).
+      - Program ima gresku u drugoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(1,2,2,1,4).
+      - Program ima gresku u trecoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(new double[] {1, 2, 3}).
+      - Program ima gresku u cetvrtoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(1.0, 2.0, 2.0, 1.0).
+      - Program se izvrsava bez greske i prosek datih brojeva se tacno izracunava.
+      - Program se izvrsava bez greske, ali se prosek datih brojeva ne izracunava tacno.
+    correct-answers: [5]
+
+  - question: |-
+      U programskom jeziku C# data je deklaracija promenljive jedne `string` i jedne celobrojne promenljive, kao i deo koda:
+
+      ```cs
+      string str = "Primer";
+      int broj = 66;
+      Console.WriteLine(str + broj + 65);
+      Console.WriteLine(broj + 65 + str);
+      ```
+
+      Analizirati kod i proceniti sta ce se prikazati na ekranu nakon njegovog izvrsavanja:
+
+    index-2016: 185
+    answers:
+      - |-
+        Primer6665
+        131Primer
+      - |-
+        Primer6665
+        6665Primer
+      - |-
+        Primer131
+        131Primer
+      - |-
+        PrimerBA
+        BAPrimer
+    correct-answers: [1]
+
+  - question: |-
+      Na programskom jeziku C# definisane su klase:
+
+      ```cs
+        public class A{
+            public virtual int Metod() {return 10;}
+        }
+        public class B:A {
+            public new int Metod() {return base.Metod() + 20;}
+        }
+        public class C:B {
+            public override int Metod() {return base.Metod() + 30;}
+        }
+      ```
+
+      Unutar funkcije `Main`, kreirana su tri objekta ovih klasa i iz svakog od njih izvršen poziv metode `Metod()`.
+      Zaokružiti broj ispred ponuđenog odgovora koji predstavlja scenario koji će se desiti pri pokretanju programa:
+    index-2016: 186
+    answers:
+      - Metod pozvan iz klase A vraća vrednost 10, iz klase B 10, a iz klase C 30.
+      - Metod pozvan iz klase A vraća vrednost 10, iz klase B 30, a iz klase C 60.
+      - Program se pokreće, ali baca izuzetak pozivu metode iz klase B jer `new` ne ide u kombinaciji sa `virtual`.
+      - Kompilator javlja grešku jer u klasi `C` metod ne može biti redefinisan.
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, koji definiše rekurzivni metod. Analizirati kod i odrediti rezultat izvršavanja zadatog metoda:
+
+      ```cs
+      public long fun(int n){
+          return n*fun(n - 1);
+      }
+      ```
+    index-2016: 187
+    answers:
+      - Rezultat poziva `fun(3)` je 1.
+      - Rezultat poziva `fun(3)` je 2.
+      - Rezultat poziva `fun(3)` je 6.
+      - Poziv `fun(3)` izaziva grešku jer proizvodi beskonačan lanac poziva istog metoda `fun(...)`
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, koji definiše rekurzivni metod. Analizirati i odrediti rezultat koji će se prikazati na ekranu:
+
+      ```cs
+      namespace TestPrimer{
+          class Program{
+              static void Main(string[] args){
+                  fun(2);
+              }
+              public static void fun(int n){
+                  while(n>1){
+                      Console.WriteLine((n - 1) + " ");
+                      fun(n - 1);
+                  }
+              }
+          }
+      }
+      ```
+    index-2016: 188
+    answers:
+      - Program na ekranu ne prikazuje ništa
+      - Program na ekranu prikazuje 1 2 3
+      - Program na ekranu prikazuje 3 2 1
+      - Program na ekranu prikazuje 1 1 1 1 1 ...
+      - Program na ekranu prikazuje 2 2 2 2 2 ...
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, koji definiše rekurzivni metod. Analizirati kod i odrediti rezultat izvršavanja zadatog metoda:
+     
+      ```cs
+      public static int fun(int n){
+      if(n == 1) return 1;
+      else return n + fun(n-1);
+      }
+      ```
+    index-2016: 189
+    answers:
+      - Pozivom `fun(4)` se isti metod `fun()` poziva još 2 puta.
+      - Pozivom `fun(5)` se isti metod `fun()` poziva još 4 puta.
+      - Pozivom `fun(4)` se isti metod `fun()` poziva još 4 puta.
+      - Pozivom `fun(5)` se isti metod `fun()` poziva još 6 puta.
+    correct-answers: [2]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, rekurzivni metod, koji proverava da li je neki `string` palindrom. Da bi kod bio kompletiran potrebno je dopuniti treći red uslovom `if` naredbe.
+     
+      ```cs
+      public static bool palindrom(String s)
+      {
+          if(s.Lenght <= 1) return true; //bazni slučaj
+          else if (________________) return false;
+          else return palindrom(s.Substring(1, (s.Lenght-2));
+      }
+      ```
+
+      Zaokruži broj ispred traženog odgovora:
+    index-2016: 190
+    answers:
+      - |-
+        `s[0] != s[s.Lenght - 1]`
+      - |-
+        `s[0] != s[s.Lenght]`
+      - |-
+        `s[1] != s[s.Lenght - 1]`
+      - |-
+        `s[1] != s[s.Lenght]`
+    correct-answers: [1]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, rekurzivni metod, koji proverava da li je neki `string` palindrom. Da bi kod bio kompletiran potrebno je dopuniti sedmi red.
+        
+      ```cs
+      public static bool Palindrom(String s){
+          return Palindrom(s, 0, s.Lenght - 1);
+      }
+      public static bool Palindrom(String s, int levi, int desli){
+          if(desni <= levi) return true; //bazni slučaj
+          else if(s[levi] != s[desni]) return false;
+          else return ________________;
+      }
+      ```
+
+      Zaokruži broj ispred trazenog odgovora:
+    index-2016: 191
+    answers:
+      - |-
+        `Palindrom(s)`
+      - |-
+        `Palindrom(s, levi, desni)`
+      - |-
+        `Palindrom(s, levi+1, desni-1)`
+      - |-
+        `Palindrom(s, levi+1, desni)`
+      - |-
+        `Palindrom(s, levi, desni-1)`
+    correct-answers: [3]
+
+  - question: |-
+      Dat je kod u programskom jeziku C#, rekurzivni metod za sortiranje niza racionalnih brojeva u opadajućem redosledu. Da bi kod bio kompletiran potrebno je dopuniti drugi red pomoću jednog od ponuđenih odgovora.
+
+      ```cs
+      public static void Sortiranje(double[] niz){
+          _____________________;
+      }
+      pulic static void Sortiranje(double[] niz, int kraj){
+          if(kraj >0) {
+              int imin = 0;
+              double min= niz[0];
+              for(int i=1; i<= kraj; i++) {
+                  if(niz[i] < min){
+                      min = niz[i];
+                      imin=i;
+                  }
+              }
+          }
+      }
+      ```
+
+      Zaokruži broj ispred trazžnog odgovora:
+    index-2016: 192
+    answers:
+      - |-
+        `Sortiranje(niz)`
+      - |-
+        `Sortiranje(niz, niz.Lenght)`
+      - |-
+        `Sortiranje(niz, niz.Lenght+1)`
+      - |-
+        `Sortiranje(niz, niz.Lenght-1)`
+    correct-answers: [4]
+
+  - question: |-
+        Data je definicija klase u programskom jeziku C#. Proceniti gde u definiciji klase (ispred koje metode) treba zameniti znakove ??? službenom rečju `static`.
+       
+        ```cs
+        public class Test{
+        private broj;
+
+        public ??? int kvadrant(int n) {return n * n;}
+        public ??? int getBroj() {return broj;}
+        }
+        ```
+    index-2016: 193
+    answers:
+      - Metoda `kvadrant` MORA da bude statička, dok metoda `getBroj` može i ne mora.
+      - Obe metode moraju biti statičke.
+      - Ni jedna od definisanih metoda nije statička.
+      - Metoda `getBroj` NE SME da bude statička, dok metoda `kvadrant` može i ne mora.
+    correct-answers: [4]
+
+  - question: |-
+      U programskom jeziku C#, metod `Equals()` za proveru jednakosti dva objekta je definisan u klasi `Object`. U datom programskom kodu, u klasi `Klasa` je predefinisan metod `Equals()`. Analizirati kod i proceniti tačnost izvrsšnja.
+        
+      ```cs
+      namespace TestPrimer{
+          class Program{
+              static void Main(string[] args){
+                  Object obj1 = new Klasa();
+                  Object obj2 = new Klasa();
+                  Console.WriteLine(obj1.Equals(obj2));
+              }
+          }
+          class Klasa{
+              int x;
+              public new bool Equals(Klasa a) {return this.x == a.x;}
+          }
+      }
+      ```
+    index-2016: 194
+    answers:
+      - Program ima grešku, jer se izrazom `obj1.Equals(obj2)` proverava jednakost objekta `obj`1 i `obj2` razlicitog tipa od `Object`.
+      - Program ima grešku, jer se jednakost `obj1` i `obj2` tipa `Klasa` proverava izrazom `obj1==obj2`.
+      - Program se izvršava bez greške i prikazuje se `true` na ekranu.
+      - Program se izvršava bez greške i prikazuje se `false` na ekranu.
+    correct-answers: [4]
+
+  - question: |-
+        U programskom jeziku C#, metod `Equals(...)` je metod instance klase `Object` kojima se proverava da li je objekat iz koga se metod poziva jednak nekom zadatom objektu. Ovaj metod se može nadjačati (`override`-ovati) u nasledjenim klasama. Odrediti zaglavlje ovog metoda u klasi string u kojoj bi metod bio nadjačan.
+        Zaokružiti slovo ispred ponuđenog odgovora:
+    index-2016: 195
+    answers:
+      - |-
+        `public override bool Equals(string s)`
+      - |-
+        `public new bool Equals(string s)`
+      - |-
+        `public override bool Equals(Object obj)`
+      - |-
+        `public static bool Equals(Object obj)`
+      - |-
+        `public bool Equals(string s1, string s2)`
+    correct-answers: [3]
+
+  - question: |-
+        U programskom jeziku C#, metod `Equals()` za proveru jednakosti dva objekta je definisana u klasi `Object`. U datom programskom kodu u klasi `Klasa` je nadjačan (`override`-ovan) metod `Equals()`. Analizirati kod i proceniti tačnost izvršenja.
+       
+        ```cs
+        namespace TestPrimer{
+            class Program {
+                static void Main(string[] args){
+                    Object obj1 = new Klasa();
+                    Object obj2 = new Klasa();
+                    Console.WriteLine(obj1.Equals(obj2));
+                }
+            }
+            class Klasa {
+                int x;
+                public override bool Equals(object o) {
+                    Klasa a = (Klasa) o;
+                    return this.x == a.x;
+                }
+            }  
+        }
+        ```
+
+        Zaokruži broj ispred tačnog odgovora:
+    index-2016: 196
+    answers:
+      - Program ima grešku, jer se izrazom `obj1.Equals(obj2)` proverava jednakost objekata `obj1` i `obj2` različitog tipa od `Object`.
+      - Program ima grešku, jer se jednakost objekata `obj1` i `obj2` tipa `Klasa` proverava izrazom `obj1 == obj2`.
+      - Program se izvršava bez greške i prikazuje `true` na ekranu.
+      - Program se izvršava bez greške i prikazuje `false` na ekranu.
+    correct-answers: [3]
+
+  - question: |-
+        Dat je kod programa u programskom jeziku C#. U `Main` metodi deklarisane su promenljive `s`, `obj` i `t`. Analizirati deklaraciju i odrediti na koji objekat ukazuju promenljive `s`, `obj` i `t`.
+       
+        ```cs
+        namespace TestPrimer{
+            class Program{
+                static void Main(string[] args){
+                    string s= "c#";
+                    Object obj = s;
+                    String t= (String) obj;
+                }
+            }
+        }
+        ```
+
+        Zaokružiti broj ispred tačnog odgovora:
+    index-2016: 197
+    answers:
+      - Kada se vrednost promenljive `s` dodeljuje promenljivoj `obj` u naredbi `Object obj = s`, konstruiše se novi objekat.
+      - Kada se konvertuje tip promenljive `obj` i njena vrednost dodeljuje promenljivoj `t` u naredbi `String t= (String) obj`, konstruiše se novi objekat.
+      - Kada se konvertuje tip promenljive `obj` i njena vrednost dodeljuje promenljivoj `t` u naredbi `String t= (String) obj`, sadržaj promenljive `obj` se menja.
+      - Promenljive `s`, `obj` i `t` ukazuju na isti objekat tipa `string`.
+    correct-answers: [4]
+
+  - question: |-
+        Dat je kod programa u programskom jeziku C# koji definiše klasu `Osoba` sa njenim metodama i atributima. Analizirati dati kod i odrediti koji od ponuđenih odgovora je potrebno dopisati u 1. red koda kako bi metoda bila tačno definisana.
+        
+        ```cs
+        public class Osoba : __________ {
+            private string ime;
+            private string prezime;
+            int godina;
+            public Osoba( string ime, string prezime, int godina) {
+                this.ime=ime;
+                this.prezime=prezime;
+                this.godina=godina;
+            }
+            public int GetGodina() {return this.godina;}
+            public int CompareTo(Osoba obj) {
+                if (this.godina > obj.GetGodina()) return 1;
+                else if (this.godina < obj.GetGodina()) return -1;
+                else return 0;
+            }
+            public override string ToString(){
+                return "Ime:" + this.ime + "\tPrezime:" + this.prezime + "\tGodina:" + this.godina; 
+            }
+        }
+        ```
+        Zaokruži broj ispred tačnog odgovora:
+    index-2016: 198
+    answers:
+      - |-
+        `:IComparable<Osoba>`
+      - |-
+        `:IComparable`
+      - |-
+        `:IEquatable<Osoba>`
+      - |-
+        `:Comparer`
+    correct-answers: [1]
+
+  - question: |-
+        Datim kodom u programskom jeziku C# kreira se pet objekata klase `Osoba` koja implementira interfejs `IComparable`. Dopuniti kod programa naredbom koja, pomoću kolekcije podataka, formira generičku listu osoba - promenljiva lista i naredbu koja vrši sortiranje te liste. Analizirati dati kod i odrediti koji od ponuđenih odgovora je potrebno dopisati u 7. i 10. liniju koda kako bi se pravilno deklarisala i sortirala promenljiva `lista`.
+        
+        ```cs
+        static void Main(string[] args){
+            Osoba a = new Osoba("Marko Ilic", 34);
+            Osoba b = new Osoba("Marko Prljic", 30);
+            Osoba c = new Osoba("Danilo Sekara", 24);
+            Osoba d = new Osoba("Sara Males", 15);
+            Osoba e = new Osoba("Borko Ilic", 34);
+            __________________________________
+            lista.Add(a); lista.Add(b); lista.Add(c);
+            lista.Add(d); lista.Add(e);
+            __________________________________
+            Console.WriteLine("Prikaz osoba po godinama starosti:");
+            foreach(Osoba x in lista) {Console.WriteLine(x);}
+        }
+        ```
+    index-2016: 199
+    answers:
+      - |-
+        `List lista = new List();` i `lista.Sort(null);`
+      - |-
+        `List<Osoba> lista;` i `lista.Sort();`
+      - |-
+        `ArrayList<Osoba> lista = new ArrayList<Osoba>();` i `lista.Sort();`
+      - |-
+        `List<Osoba> lista = new List<Osoba>();` i `lista.Sort();`
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# koji definiše klasu `Osoba` sa njenim metodama i atributima. Analizirati dati kod i na osnovu deklaracije metoda `CompareTo(...)` i `Clone()` odrediti kod koji nedostaje u prvoj liniji.
+
+      ```cs
+      class Osoba : ______________ {
+          private string ime;
+          private double dohodak;
+          public Osoba(string ime, double dohodak){
+              this.ime = ime;
+              this.dohodak = dohodak;
+          }
+          public int CompareTo(Osoba osb){
+              if(this.dohodak < osb.dohodak) return -1;
+              else if(this.dohodak > osb.dohodak) return 1;
+              else return 0;
+          }
+          public Object Clone(){
+              return this.MemberwiseClone();
+          }
+          public override string ToString(){
+              return "Ime:" + this.ime + "\nDohodak:" + this.dohodak;
+          }
+      }
+      ```
+      Zaokruži broj ispred tačnog odgovora:
+    index-2016: 200
+    answers:
+      - |-
+        `:IComparable<Osoba>, ICloneable`
+      - |-
+        `Comparable<Osoba>, Cloneable`
+      - |-
+        `:IComparable<Osoba>, ICloneable<Osoba>`
+      - |-
+        `:IComparable, ICloneable`
+    correct-answers: [1]
+
+  - question: |-
+        Dat je deo koda koji je napisan na programskom jeziku C#. Analizirati i odrediti šta ce se prikazati na izlazu izvršavanjem ovog koda:
+        
+        ```cs
+        class PassA {
+            public static void Main(string[] args) {
+                PassA p = new PassA();
+                p.start();
+            }
+            public void start() {
+                long[] a1 = { 3, 4, 5};
+                long[] a2 = fix(a1);
+                Console.WriteLine(a1[0] + a1[1] + a1[2] + " ");
+                Console.WriteLine(a2[0] + a2[1] + a2[2]);
+            }
+            long[] fix(long[] a3) {
+                a3[1] = 7;
+                return a3;
+            }
+        } 
+        ```
+    index-2016: 201
+    answers:
+      - 12 15
+      - 15 15
+      - 345 375
+      - 375 375
+    correct-answers: [2]
+
+  - question: |-
+        Dat je kod programa u programskom jeziku C# kojim su definisane tri klase: `class Program` koja sadrži `Main(string[] args)` metodu, `class Vozillo` i `class Auto`. Kompajler prilikom prevođenja ovog koda javlja grešku. Zaokružiti broj ispred odgovora u kom je napisano koji redovi su izazvali grešku prilikom kompajliranja.
+       
+        ```cs
+        class Program{
+            public static void Main(string[] args) {
+                Vozilo v= new Vozilo(8);
+                v.vozi();
+                v.brojVrata = 2;
+                Vozilo bmw = new Auto(2, 4);
+                bmw.vozi();
+                Auto audi = new Auto(4);
+                Auto.vozi();
+            }
+        }
+        class Vozilo {
+            public int brojTockova;
+            public Vozilo(int t) {
+                brojTockova = t;
+            }
+            public void vozi() {
+                Console.WriteLine("Voznja vozila");
+            }
+        }
+        class Auto : Vozilo {
+            public int brojVrata;
+            public Auto(int v, int t) :base(t) {
+                brojVraa = v;
+            }
+            public void vozi() {
+                Console.WriteLine("Voznja auta");
+            }
+        }
+        ```
+    index-2016: 202
+    answers:
+      - Greške su u redovima 7, 10 i 16.
+      - Greške su u redovima 7, 9 i 22.
+      - Greške su u redovima 6, 7 i 10.
+      - Greške su u redovima 6, 9 i 10.
+      - Greške su u redovima 6, 9 i 24.
+      - Greške su u redovima 9, 10 i 24.
+    correct-answers: [4]
+
+  - question: |-
+      Dat je deo koda napisan u programskom jeziku C#. Analizirati kod i odrediti šta će biti na izlazu:
+       
+      ```cs
+      class PassS {
+          public static void Main(string[] args) {
+              PassS p = new PassS();
+              p.start();
+          }
+          void start() {
+              String s1 = "slip";
+              String s2 = fix(s1);
+              Console.WriteLine(s1 + " " + s2);
+          }
+          String fix (String s1) {
+              s1 = s1 + "stream";
+              Console.WriteLine(s1 + " ");
+              return "stream";
+          }
+      }
+      ```
+    index-2016: 203
+    answers:
+      - slip stream
+      - slipstream stream
+      - stream slip stream
+      - slipstream slip stream
+    correct-answers: [4]
+
+  - question: |-
+      Dat je kod u programskom jeziku C# koji definiše apstraktnu klasu `Figura`. U klasi `Figura` napisati statički inicijalni blok u kom se inicijalizuje vrednost atributa `brojFigura`. Zaokružiti broj ispred naredbe koju treba dodati u 7. liniju koda, kojom se inicijalizuje vrednost statičkog atributa `brojFigura`.
+       
+      ```cs
+      public static class Figura {
+          protected static int brojFigura;
+          protected string naziv;
+          public Figura(string naziv) {
+              this.naziv = naziv;
+          }
+          __________________________________
+          public static double povrsinaFigure();
+          public static double obimFigure();
+          public static void UvecajBrojFigura() {
+              brojFigura++;
+          }
+          public static override string ToString() {
+              return "Figura";
+          }
+      }
+      ```
+
+      Zaokružiti broj ispred odgovora koji daje ispravno rešenje:
+    index-2016: 204
+    answers:
+      - |-
+        `static Figura() {brojFigura = 0;}`
+      - |-
+        `brojFigura = 0;`
+      - |-
+        `static {brojFigura = 0; }`
+      - |-
+        `public Figura() {brojFigura = 0;}`
+    correct-answers: [1]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# u kom su definisane tri klase: `class Program` koja sadrži `Main(string[] args)` metodu, `class A` i `class B`. Analizirati dati kod i odrediti šta ce se prikazati na ekranu kao rezultat izvršavanja ovog programa. Zaokružiti broj ispred odgovora koji sadrži rezultat ispisa:
+       
+      ```cs
+      class Program : A {
+          public static void Main(string[] args) {
+              Program p = new Program();
+          }
+      }
+      class A : B {
+          public A() {
+              Console.WriteLine("Pozvan podrazumevani konstruktor klase A");
+          }
+      }
+      class B {
+          public B() {
+              Console.WriteLine("Pozvan podrazumevani konstruktor klase B");
+          }
+      }
+      ```
+    index-2016: 205
+    answers:
+      - Ništa
+      - Pozvan podrazumevani konstruktor klase A
+      - Pozvan podrazumevani konstruktor klase B
+      - |-
+        Pozvan podrazumevani konstruktor klase A i u drugom redu: Pozvan podrazumevani konstruktor klase B
+      - |-
+        Pozvan podrazumevani konstruktor klase B i u drugom redu: Pozvan podrazumevani konstruktor klase A
+    correct-answers: [5]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# u kom su definisane tri klase: `class Program` koja sadrži `Main(string[] args)` metodu, `class A` i `class B`. Analizirati dati kod i odrediti da li je kod ispravno napisan. Zaokružiti broj ispred iskaza koji daje informaciju o tačnosti koda:
+       
+      ```cs
+      class Program {
+          public static void Main(string[] args) {
+              B b = new B();
+              b.Metod(5);
+              Console.WriteLine("b.i je " + b.CrtajI());
+          }
+      }
+      class A {
+          int i;
+          public int CrtajI() {return i;}
+          public void Metod(int i) {this.i = i;}
+      }
+      class B : A {
+          public void Metod(string s) {
+              Console.WriteLine(s);
+          }
+      }
+      ```
+    index-2016: 206
+    answers:
+      - Program ima grešku, jer je metod `Metod(int i)` nadjačan (predefinisan) sa različitim potpisom u klasi `B`.
+      - Program ima grešku, jer se `b.Metod(5)` ne može pozvati pošto je metod `Metod(int i)` zaklonjen u klasi `B`.
+      - Program ima grešku zbog `b.i`, jer je polje `i` nepristupačno iz klase `B`.
+      - Program nema greške, jer nasleđeni metod klase `A`, `Metod(int i)`, nije nadjačan u klasi `B`, već je definisan preopterećen metod `Metod(string s)`.
+    correct-answers: [4]
+
+  - question: |-
+      Zaokružiti brojeve ispred navedenih članova klase koji se ni pod kojim uslovima NE nasleđuju sa roditeljske klase na izvedenu klasu:
+    index-2016: 207
+    answers:
+      - |-
+        `readonly` svojstva
+      - Zaštićeni clanovi klasa
+      - Svojstva (property)
+      - Privatni članovi klasa
+      - Konstruktor klase
+    correct-answers: [4, 5] 
+    
+  - question: |-
+      Data je naredba koda u programskom jeziku C# koja predstavlja deklaraciju niza. Koje su deklaracije tačne:
+    index-2016: 208
+    answers:
+      - |-
+        `int niz = new int(30);`
+      - |-
+        `double[] niz = new double[30];`
+      - |-
+        `int[] niz = {3, 4, 3, 2};`
+      - |-
+        `char[] niz = new char[];`
+      - |-
+        `char[] niz = new char{'a', 'b', 'c', 'd'};`
+      - |-
+        `char[] niz = new char{'a', 'b', 'c', 'd'}`
+    correct-answers: [2, 3, 6]
+
+  - question: |-
+      U klasi `Figura` dat je podrazumevani (default) konstruktor i konstruktor sa 4 parametra:
+
+      ```cs
+      public Figura() {...}
+      public Figura(string ime, string boja, int pozX, int pozY) {...}
+      ```
+
+      Zaokružiti brojeve ispred ispravno napisanih naredbi kreiranja objekata klase `Figura`:
+    index-2016: 210
+    answers:
+      - |-
+        `Figura f = Figura("lovac", "beli", 7, 3);`
+      - |-
+        `Figura f = new Figura("beli", "lovac", 7, 3);`
+      - |-
+        `Figura f = new Figura();`
+      - |-
+        `Figura f = new Figura("lovac", 3, 7, "beli");`
+      - |-
+        `Figura f = new Figura("lovac", "beli", 3, 7);`
+      - |-
+        `Figura f = new Figura("lovac", "beli", 3);`
+    correct-answers: [2, 3, 5]
+
+  - question: |-
+      Dat je kod na C# u kojim su kreirane tri klase u lancu nasleđivanja. Imajući u vidu klasifikatore pristupa poljima klasa, zaokružiti brojeve ispred polja koja će biti vidljiva unutar klase `Sin`:
+
+      ```cs
+      public class Deda {
+          private double penzija;
+          protected string adresa;
+          public string ime;
+      }
+      public class Otac : Deda {
+          private double plata;
+          protected string struka;
+      }
+      public class Sin : Deda {
+          public int razred;
+      }
+      ```
+    index-2016: 211
+    answers:
+      - |-
+        `penzija`
+      - |-
+        `adresa`
+      - |-
+        `ime`
+      - |-
+        `plata`
+      - |-
+        `struka`
+      - |-
+        `razred`
+    correct-answers: [2, 3, 6]
+
+  - question: |-
+      Dati su iskazi koji se odnose na pravila pisanja `try-catch-finally` blokova za rukovanje izuzecima. Koji iskazi su tačni:
+    index-2016: 213
+    answers:
+      - Blok `try` mora imati bar jedan `catch` blok.
+      - Blok `try` može imati više `catch` blokova.
+      - Ako blok `try` ima više `catch` blokova, izuzetak osnovne `Exception` klase mora se hvatati u prvom `catch` bloku.
+      - Ako blok `try` ima više `catch` blokova, bitan je redosled njihovog pisanja.
+      - Blok `try` mora imati bar jedan `finally` blok.
+      - Blok `try` ne sme da ima više `catch` blokova.
+    correct-answers: [1, 2, 4]
+
+  - question: |-
+      Koji iskazi u programskom jeziku C# definišu konstruktor:
+    index-2016: 214
+    answers:
+      - Podrazumevani konstruktor bez parametara se uvek automatski dodaje klasi.
+      - Podrazumevani konstruktor bez parametara se klasi automatski dodaje ukoliko u njoj nije eksplicitno definisan nijedan konstruktor.
+      - U klasi se mora eksplicitno definisati bar jedan konstruktor.
+      - Konstruktori nemaju tip rezultata, čak ni void.
+    correct-answers: [2, 4]
+
+  - question: |-
+      Date su naredbe u programskom jeziku C# koje definišu zaglavlje metode `Print()` sa promenljivim brojem parametara. Odrediti koji od ponuđenih odgovora su ispravni:
+    index-2016: 216
+    answers:
+      - |-
+        `public void Print(params string[] niska, params double[] broj)`
+      - |-
+        `public void Print(params double[] broj, string niska)`
+      - |-
+        `public void params Print(double d1, double d2)`
+      - |-
+        `public void Print(params double[] broj)`
+      - |-
+        `public void Print(int n, params double[] broj)`
+    correct-answers: [4, 5]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C#. Kod sadrži objekte dve klase u kojima je definisan metod `ToString()`. Analizirati kod datog programa i odrediti koji od datih iskaza su tačni.
+
+      ```cs
+      namespace TestPrimer{
+          class Program{
+              static void Main(string[] args) {
+                  Object a = new KlasaA();
+                  Object obj = new Object();
+                  Console.WriteLine(a);
+                  Console.WriteLine(obj);
+              }
+          }
+      }
+      class KlasaA{
+          int x;
+          public override string ToString() { return "x u A je " + x;}
+      }
+      ```
+
+      Zaokružiti brojeve ispred očekivanih odgovora:
+    index-2016: 217
+    answers:
+      - Program ima gresku, jer naredbu `Console.WriteLine(a)` treba zameniti naredbom `Console.WriteLine(a.ToString())`.
+      - Prilikom izvrsavanja naredbe `Console.WriteLine(a)`, program poziva metod `ToString()` nasledjen iz klase `Object`.
+      - Prilikom izvrsavanja naredbe `Console.WriteLine(a)`, program poziva metod `ToString()` iz klase `KlasaA`.
+      - Prilikom izvrsavanja naredbe Console.WriteLine(obj), program poziva metod `ToString()` iz klase `Object`.
+    correct-answers: [3, 4]
+
+  - question: |-
+      U programskom jeziku C# data je deklaracija dve klase: `KlasaA` i `KlasaB` koja nasleđuje `KlasaA`. Analizirati date klase i proceniti koji od ponuđenih iskaza su tačni.
+      
+      ```cs
+      namespace TestPrimer{
+          class Program {
+              static void Main(string [] args) {
+                  KlasaB b = new KlasaB();
+                  b.Print();
+              }
+          }
+          class KlasaA {
+              string s;
+              public KlasaA(string s) { this.s = s; }
+              public void Print() { Console.WriteLine(this.s); }
+          }
+          class KlasaB : KlasaA {}
+      }
+      ```
+    index-2016: 218
+    answers:
+      - Program ima grešku, jer `KlasaB` nema podrazumevani konstruktor `KlasaB()`.
+      - Program ima grešku jer `KlasaB` ima podrazumevani konstruktor, dok roditeljska `KlasaA` nema takav konstruktor. Program bi radio bez greške ukoliko bi se uklonio konstruktor sa parametrima iz `KlasaA`.
+      - Program ima grešku koja se može otkloniti ukoliko bi se u `KlasaA` eksplicitno dodao konstruktor bez parametara `KlasaA()`.
+      - Program nema grešku, izvršava se, ali se na konzoli ništa ne ispisuje jer je polje `s` dobilo podrazumevanu vrednost `String.Empty`
+    correct-answers: [2, 3]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# koji deklariše dva objekta tipa `Pravougaonik` i jedan objekat tipa `Krug`. Klase `Pravougaonik` i `Krug` nasleđuju apstraktnu klasu `Figura` i obe klase imaju metodu `ToString`. Kod programa treba dopuniti sa naredbom koja će ispisivati niz `Figura[]` deklarisan u kodu programa.
+      
+      ```cs
+      public abstract class Figura {
+          protected static int brojFigura = 0;
+          public static int BrojFigura{ get{return brojFigura;} }
+          public Figura() {brojFigura++;}
+          public static double povrsinaFigure();
+          public override string ToString() {return "Figura ";}
+      }
+      ...
+      Pravougaonik pr1 = new Pravougaonik();
+      Pravougaonik pr2 = new Pravougaonik(3, 2);
+      Krug kr1 = Krug(2);
+      
+      Console.WriteLine("Broj figura=" + Figura.BrojFigura + "\n");
+      Figura[] niz = new Figura(Figura.BrojFigura);
+      niz[0] = pr1; niz[1] = pr2; niz[2] = kr1;
+
+      Console.WriteLine("Prikaz figura:");
+      __________________________________
+      ```
+
+      Zaokruži brojeve ispred odgovora koji predstavljaju moguće načine prikaza niza figura:
+    index-2016: 219
+    answers:
+      - |-
+        `foreach (Figura el in niz) Console.WriteLine(el);`
+      - |-
+        `for (int i=0; i<niz.Lenght; i++) Console.WriteLine(niz[i]);`
+      - |-
+        `foreach (el in niz) Console.WriteLine(el);`
+      - |-
+        `foreach(int i in niz) Console.WriteLine(niz[i]);`
+    correct-answers: [1, 2]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# i sastoji se od dve klase u jednoj datoteci. Analizirati dati kod i proceniti njegovu tačnost.
+
+      ```cs
+      namespace TestPrimer {
+          class Program{
+              static void Main (string[] args) {
+                  A a = new A();
+                  a.Print();
+              }
+          }
+          class A{
+              string s;
+              public A(string s) {this.s = s;}
+              public void Print() { Console.WriteLine(s); }
+          }
+      }
+      ```
+    index-2016: 220
+    answers:
+      - Program ima grešku jer klasa `A` nije javna klasa.
+      - Program ima grešku jer klasa `A` nema podrazumevani konstruktor.
+      - Program nema grešku i normalno se izvršava ništa ne prikazujući na ekranu.
+      - Program ima grešku koja se može ispraviti ukoliko se u četvrtom redu naredba `A a = new A();` zameni naredbom `A a = new A("poruka");`
+    correct-answers: [2, 4]
+
+  - question: |-
+      Data je definicija klase u programskom jeziku C# i sastoji se od dva konstruktora, jedne metode i polja `x`. U definiciji se koristi službena reč `this`. Analizirati dati kod i proceniti tačnost sledećih iskaza:
+      
+      ```cs
+      class TestPrimer{
+          public double x;
+          public TestPrimer(double x) {
+              this.Fun();
+              this.x = x;
+          }
+          public TestPrimer() {
+              Console.WriteLine("Podrazumevani konstruktor");
+              this(23);
+          }
+          public void Fun() {
+              Console.WriteLine("Poziv metoda fun()");
+          }
+      }
+      ```
+    index-2016: 221
+    answers:
+      - |-
+        `this.Fun()` u kostruktoru `TestPrimer(double x)` može se pojednostaviti i zameniti samo sa `Fun()`.
+      - |-
+        `this.x` u konstruktoru `TestPrimer(double x)` može se pojednostaviti i zameniti samo sa `x`.
+      - Poziv konstruktora `this(23)` unutar drugog konstruktora `TestPrimer()` je prvo šta se izvršava i mora se pisati odmah posle deklaracije public `TestPrimer():this(23)`.
+      - |-
+        `this(23)` u konstruktoru `Test()` mora se zameniti sa preciznijim izrazom `this(23.0)`
+    correct-answers: [1, 3]
+
+  - question: |-
+      Data je definicija klase u programskom jeziku C# i sastoji se od dva konstruktora, metode i polja `x` i `y`. U petom redu definisan je konstruktor sa parametrima koji formira tačku sa koordinatama x,y. Dopuniti definiciju konstruktora.
+
+      ```cs
+      public class Point{
+          private double x, y;
+          public Point() { x = 0; y = 0; }
+          public void set(double xx, double yy) { x = xx; y = yy; }
+          public Point(double x, double y) { ________________; }
+      }
+      ```
+      
+      Zaokruži brojeve ispred tačnih odgovora:
+    index-2016: 222
+    answers:
+      - |-
+        `this.x = x; this.y = y;` 
+      - |-
+        `x = x; y = y;`
+      - |-
+        `set(x,y);`
+      - |-
+        `set(this.x, this.y);`
+      - |-
+        `x = this.x; y = this.y;`
+    correct-answers: [1, 3]
+
+  - question: |-
+        Data je definicija klase u programskom jeziku C# i sastoji se od dva konstruktora i polja `x` i `y`. U četvrtom redu dopuniti podrazumevani konstruktor bez parametara klase Point, koji formira tačku u koordinantnom početku, pozivajući konstruktor sa parametrima.
+
+        ```cs
+        public class Point{
+            private double x, y;
+            public Point(double x, double y) {this.x = x; this.y = y;}
+            public Point() { ________________ }
+        }
+        ```
+
+        Zaokruži brojeve ispred traženih odgovora:
+    index-2016: 223
+    answers:
+      - |-
+        `public Point() :base(0, 0) {}`
+      - |-
+        `public Point() :this(0, 0) {}`
+      - |-
+        `public Point() { Point(0, 0); }`
+      - |-
+        `public Point() :this(0.0, 0.0) {}`
+      - |-
+        `public Point() { Point(0.0, 0.0); }`
+    correct-answers: [2, 4]
+
+  - question: |-
+      Dati su delovi koda u programskom jeziku C# koji treba da računaju zbir elemenata matrice `a`, deklarisane na sledeći način: `int[] a = new int[10, 10]`. Analizirati date kodove i proceniti koji od predloga je tačan.
+    index-2016: 224
+    answers:
+      - |-
+        ```cs
+        int sum = 0;
+        for(int i=0; i<a.Lenght; i++)
+            for(int j=0; j<a[i].Lenght; j++)
+                sum += a[i][j];
+        ```
+      - |-
+        ```cs
+        int sum=0;
+        foreach(int x in a) sum += x;
+        ```
+      - |-
+        ```cs
+        int sum = 0;
+        for(int i=0; i<a.GetLenght(0); i++)
+            for(int j=0; j<a.GetLenght(1); j++)
+                sum += a[i,j];
+        ```
+      - |-
+        ```cs
+        int sum=0;
+        foreach(int[] vrsta in a)
+            foreach(int el in vrsta)
+                sum += el;
+        ```
+    correct-answers: [2, 3]
+
+  - question: |-
+      Na programskom jeziku C# definisane su klase:
+
+      ```cs
+      public class A {
+          public virtual int Metod() {return 10;}
+      }
+      public class B : A {
+          public new int Metod() {return 20;}
+      }
+      public class C : B { 
+          public override int Metod() {return 30;}
+      }
+      ```
+
+      Kompilator javlja grešku pri prevođenju ovog koda koju je moguće resšti na više načina u zavisnosti od očekivanog efekta.
+      
+      Koja će rešenja od očekivanog otkloniti grešku u kodu:
+    index-2016: 225
+    answers:
+      - U 5. liniji koda metod u klasi `B` proglasiti za `abstract` umesto `new`.
+      - U 5. liniji koda reč `new` zameniti sa `override`.
+      - U 7. liniji koda klasu `C` naslediti iz klase `A`, umesto iz klase `B`.
+      - |-
+        U 8. liniji koda, iza deklaracije metode u klasi `C`, pozvati osnovni metod: `base()`.
+      - U 8. liniji koda obrisati ključnu reč `override` i zameniti je sa `sealed`.
+    correct-answers: [2, 3]
+
+  - question: |-
+      Dat je kod programa u programskom jeziku C# kojim su definisane četiri klase: `class Program` koja sadrzi `Main(string[] args)` metodu, `class MasterStudent`, `class Student` i `class Osoba`. Prilikom prevođenja ovog koda kompajler javlja grešku. Zaokružiti brojeve ispred ponuđenih odgovora koji opisuju razloge nastajanja greške prilikom kompajliranja.
+
+      ```cs
+      class Program{
+          static void Main(string[] args) {
+              m(new MasterStudent());
+              m(new Student());
+              m(new Osoba());
+              m(new Object());
+          }
+          public static void m(Student x) {
+              Console.WriteLine(x.ToString());
+          }
+      }
+      class MasterStudent : Student{}
+      class Student : Osoba {
+          public string toString() {return "Osoba";}
+      }
+      class Osoba : Object {
+          public string toString() {return "Osoba";}
+      }
+      ```
+    index-2016: 226
+    answers:
+      - Greška je u pozivu `m(new MasterStudent())`;
+      - Greška je u pozivu `m(new Student())`;
+      - Greška je u pozivu `m(new Osoba())`;
+      - Greška je u pozivu `m(new Object())`;
+    correct-answers: [3, 4]
