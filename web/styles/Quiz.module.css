@@ -2,6 +2,11 @@
     margin-bottom: 5vh;
 }
 
+.singleQuestion hr {
+    border: none;
+    border-top: 5px dotted rgb(141, 141, 141);
+}
+
 .result {
     margin: auto;
     text-align: center;

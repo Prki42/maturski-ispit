@@ -36,6 +36,10 @@
     margin-bottom: 10px;
 }
 
+.question > div:first-child {
+    font-weight: bold;
+}
+
 .correctAnswerBg {
     background-color: rgba(0, 128, 0, 0.25);
 }

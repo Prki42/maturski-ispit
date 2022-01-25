@@ -3,3 +3,7 @@
     font-size: 0.9375em;
     white-space: pre-wrap;
 }
+
+.mdBlock > p:first-child {
+    margin-top: 0.3rem;
+}

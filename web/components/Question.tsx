@@ -19,7 +19,7 @@ const Question: FC<Props> = ({
   );
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
-  const { correctAnswers, answers, question } = questionObj;
+  const { correctAnswers, answers, question, index2016 } = questionObj;
 
   useEffect(() => {
     didAnswerCorrect(isCorrect);
@@ -60,6 +60,7 @@ const Question: FC<Props> = ({
       }
     >
       <div className={styles.question}>
+        <div>{index2016}</div>
         <MdWithCode content={question} />
       </div>
       <ol>

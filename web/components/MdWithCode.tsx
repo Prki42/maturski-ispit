@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import ReactMarkdown from "react-markdown";
+// @ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// @ts-ignore
 import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 import styles from "../styles/MdWithCode.module.css";
 

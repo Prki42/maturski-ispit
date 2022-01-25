@@ -131,7 +131,7 @@ func main() {
 				if len(singleErr.Errors) == 0 {
 					continue
 				}
-				fmt.Printf("  Error on line entry %v", idx)
+				fmt.Printf("  Error on entry %v", idx)
 				if singleErr.Index2016 != 0 {
 					fmt.Printf(" (index2016: %v)", singleErr.Index2016)
 				}

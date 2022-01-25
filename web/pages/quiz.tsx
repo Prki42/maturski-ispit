@@ -90,6 +90,7 @@ const Quiz: FC<Props> = ({ n }): JSX.Element => {
                         }
                         quizRunning={quizRunning}
                       ></Question>
+                      <hr />
                     </li>
                   );
                 })}
