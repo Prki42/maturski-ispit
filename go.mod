@@ -1,4 +1,4 @@
-module github.com/Prki42/matura-pitanja
+module github.com/Prki42/maturski-ispit
 
 go 1.17
 

@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Prki42/matura-pitanja/model"
+	"github.com/Prki42/maturski-ispit/model"
 	"github.com/goccy/go-yaml"
 )
 

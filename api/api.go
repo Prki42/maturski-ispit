@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Prki42/matura-pitanja/model"
+	"github.com/Prki42/maturski-ispit/model"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
