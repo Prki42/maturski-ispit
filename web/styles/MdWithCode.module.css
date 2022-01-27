@@ -1,9 +1,20 @@
-.mdBlock code, .mdBlock code * {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9375em;
-    white-space: pre-wrap;
+.mdBlock code,
+.mdBlock code * {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9375em;
+  white-space: pre-wrap;
 }
 
 .mdBlock > p:first-child {
-    margin-top: 0.3rem;
+  margin-top: 0.3rem;
+}
+
+.inlineCode {
+  color: #1d1f21;
+  background-color: #ededed;
+  padding: 2px;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+  font-size: 0.87em !important;
+  white-space: nowrap !important;
 }

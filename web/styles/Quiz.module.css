@@ -1,46 +1,46 @@
 .singleQuestion {
-    margin-bottom: 5vh;
+  margin-bottom: 5vh;
 }
 
 .singleQuestion hr {
-    border: none;
-    border-top: 5px dotted rgb(141, 141, 141);
+  border: none;
+  border-top: 5px dotted rgb(141, 141, 141);
 }
 
 .result {
-    margin: auto;
-    text-align: center;
-    font-weight: bold;
-    font-size: 2em;
+  margin: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
 }
 
-.result p{
-    margin-top: 0;
-    margin-bottom: 1vh;
+.result p {
+  margin-top: 0;
+  margin-bottom: 1vh;
 }
 
 .result {
-    margin-bottom: 5vh;
+  margin-bottom: 5vh;
 }
 
 .actionContainer {
-    margin: auto;
-    margin-bottom: 3vh;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
+  margin: auto;
+  margin-bottom: 3vh;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
 }
 
 .questionList ol {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .actionContainer button {
-    font-size: 1.1em;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-top: 0;
-    cursor: pointer;
-    padding: 1.5% 4%;
+  font-size: 1.1em;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 0;
+  cursor: pointer;
+  padding: 1.5% 4%;
 }

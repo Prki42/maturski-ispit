@@ -1,49 +1,53 @@
 .answer {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
 }
 
 .isCorrect {
-    min-width: 7ch;
-    text-align: right;
-    margin-left: auto;
+  min-width: 7ch;
+  text-align: right;
+  margin-left: auto;
 }
 
-.questionBlock li p{
-    margin: 0.6em 0;
+.questionBlock p {
+  line-height: 1.5;
+}
+
+.questionBlock li p {
+  margin: 0.2em 0;
 }
 
 .answer :hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .questionBlock li pre {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .questionBlock li pre div {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .questionBlock {
-    padding: 2%;
-    border-radius: 6px;
+  padding: 2%;
+  border-radius: 6px;
 }
 
 .question li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .question > div:first-child {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .correctAnswerBg {
-    background-color: rgba(0, 128, 0, 0.25);
+  background-color: rgba(0, 128, 0, 0.25);
 }
 
 .incorrectAnswerBg {
-    background-color: rgba(199, 1, 1, 0.20)
+  background-color: rgba(199, 1, 1, 0.2);
 }

@@ -35,7 +35,7 @@ export const MdWithCode: FC<ComponentProps> = (props) => {
                 {String(children).replace(/\n$/, "")}
               </SyntaxHighlighter>
             ) : (
-              <code className={className} {...props}>
+              <code className={className + " " + styles.inlineCode} {...props}>
                 {children}
               </code>
             );
