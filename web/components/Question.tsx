@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FC } from "react";
-import MdWithCode from "./MdWithCode";
+import { MemoizedMdWithCode } from "./MdWithCode";
 import styles from "../styles/Question.module.css";
 import QuestionType from "../types/QuestionType";
 
@@ -61,7 +61,7 @@ const Question: FC<Props> = ({
     >
       <div className={styles.question}>
         <div>{index2016}</div>
-        <MdWithCode content={question} />
+        <MemoizedMdWithCode content={question} />
       </div>
       <ol>
         {answers.map((answer, idx) => {
@@ -77,7 +77,7 @@ const Question: FC<Props> = ({
                   disabled={!quizRunning}
                   readOnly
                 ></input>
-                <MdWithCode content={answer} />
+                <MemoizedMdWithCode content={answer} />
                 <div className={styles.isCorrect}>
                   {!quizRunning && (
                     <>

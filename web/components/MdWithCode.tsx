@@ -10,7 +10,7 @@ type ComponentProps = {
   content: string;
 };
 
-const MdWithCode: FC<ComponentProps> = (props) => {
+export const MdWithCode: FC<ComponentProps> = (props) => {
   let markdown = props.content;
   return (
     // haven't even read the code below
@@ -45,4 +45,4 @@ const MdWithCode: FC<ComponentProps> = (props) => {
   );
 };
 
-export default MdWithCode;
+export const MemoizedMdWithCode = React.memo(MdWithCode);
