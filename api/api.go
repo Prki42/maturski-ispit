@@ -1,6 +1,7 @@
 package main
 
 import (
+	"compress/flate"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -49,6 +50,9 @@ func main() {
 	r.Use(middleware.Logger)
 	// TODO - do proper CORS
 	r.Use(cors.AllowAll().Handler)
+	r.Use(middleware.SetHeader("Content-Type", "application/json"))
+	compressor := middleware.NewCompressor(flate.DefaultCompression)
+	r.Use(compressor.Handler)
 
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		resp, err := json.Marshal(db)
