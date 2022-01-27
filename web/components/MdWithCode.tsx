@@ -25,6 +25,9 @@ export const MdWithCode: FC<ComponentProps> = (props) => {
             return !inline && match ? (
               <SyntaxHighlighter
                 style={atomDark}
+                showLineNumbers={
+                  String(children).split(/\r\n|\r|\n/).length > 3
+                }
                 language={match[1]}
                 PreTag="div"
                 {...props}

@@ -838,16 +838,15 @@ questions:
       U programskom jeziku C napisati funkciju `xcalloc` koja dodeljuje memorijski prostor vektoru od `n` elemenata i vrši inicijalizaciju njegovih elemenata. Svaki element vektora zauzima memorijski prostor veličine `size` bajtova. U sedmu liniju koda dopisati naredbu koja nedostaje da bi funkcija izvršavala svoj zadatak.
       
       ```c
-      1. void *xcalloc(int n, int size)
-      2. {
-      3.    int i;
-      4.    char *p, *q;
-      5.
-      6.    if((p = q = malloc(n*size)) != NULL){
-      7.    _____________________________________
-      8.    }
-      9.    return q;
-      10. }
+      void *xcalloc(int n, int size)
+      {
+          int i;
+          char *p, *q;
+          if((p = q = malloc(n*size)) != NULL){
+              _____________________________________
+          }
+          return q;
+       }
       ```
     
       Zaokružiti brojeve ispred naredbi koje su moguće rešenje ovog problema:
