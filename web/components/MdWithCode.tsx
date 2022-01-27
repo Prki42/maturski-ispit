@@ -21,21 +21,34 @@ export const MdWithCode: FC<ComponentProps> = (props) => {
       <ReactMarkdown
         components={{
           code({ node, inline, className, children, ...props }) {
+            if (inline) {
+              return (
+                <code
+                  className={className + " " + styles.inlineCode}
+                  {...props}
+                >
+                  {children}
+                </code>
+              );
+            }
             const match = /language-(\w+)/.exec(className || "");
-            return !inline && match ? (
-              <SyntaxHighlighter
-                style={atomDark}
-                showLineNumbers={
-                  String(children).split(/\r\n|\r|\n/).length > 3
-                }
-                language={match[1]}
-                PreTag="div"
-                {...props}
-              >
-                {String(children).replace(/\n$/, "")}
-              </SyntaxHighlighter>
-            ) : (
-              <code className={className + " " + styles.inlineCode} {...props}>
+            if (match) {
+              return (
+                <SyntaxHighlighter
+                  style={atomDark}
+                  showLineNumbers={
+                    String(children).split(/\r\n|\r|\n/).length > 3
+                  }
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                >
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
+              );
+            }
+            return (
+              <code className={className} {...props}>
                 {children}
               </code>
             );
