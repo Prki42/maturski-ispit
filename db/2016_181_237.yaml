@@ -5,22 +5,22 @@ questions:
       
       ```cs
       namespace TestPrimer{
-      class Program
-        {
-      static void Main(string[] args)
+          class Program
           {
-      Console.WriteLine(fun(17));
+              static void Main(string[] args)
+              {
+                  Console.WriteLine(fun(17));
+              }
+              public int fun(int n) {return n;}
+              public void fun(int n) {Console.WriteLine(n);}
           }
-      public int fun(int n) {return n;}
-      public void fun(int n) {Console.WriteLine(n);}
-        }
       }
       ```
 
       Analizirati kod i zaokružiti broj ispred očekivanog odgovora:
     index-2016: 181
     answers:
-      - -Program ima grešku, jer se ne može odrediti koju verziju preopterećenog metoda `fun(...)` treba pozvati.
+      - Program ima grešku, jer se ne može odrediti koju verziju preopterećenog metoda `fun(...)` treba pozvati.
       - Program ima grešku, jer je druga verzija preopterećenog metoda `fun(...)` definisana, ali se nigde ne poziva.
       - Program se normalno izvršava i prikazuje 17 jedanput.
       - Program se normalno izvršava i prikazuje 17 dvaput.
@@ -30,20 +30,20 @@ questions:
       Dat je kod programa u programskom jeziku C#. Analizirati program i odrediti šta se prikazuje na ekranu kao rezultat njegovog izvršavanja.
 
       ```cs
-      namespace TestPrimer{
-      class Program{
-      static void Main(string[] args){
-      int [] x= { 0, 1, 2, 3, 4};
-          Inc(x);
-      int [] y= { 0, 1, 2, 3, 4};
-          Inc(y[0]);
-      Console.WriteLine(x[0] + " " + y[0]);
-      }
-      public staic void Inc(int [] a){
-      for(int i = 0; i < a.Lenght; i++) a[i]++;
-      }
-      public static void Inc(int n) {n++;}
-        }
+      namespace TestPrimer {
+          class Program {
+              static void Main(string[] args) {
+                  int [] x= { 0, 1, 2, 3, 4};
+                  Inc(x);
+                  int [] y= { 0, 1, 2, 3, 4};
+                  Inc(y[0]);
+                  Console.WriteLine(x[0] + " " + y[0]);
+              }
+              public staic void Inc(int [] a){
+                  for(int i = 0; i < a.Lenght; i++) a[i]++;
+              }
+              public static void Inc(int n) {n++;}
+          }
       }
       ```
     index-2016: 182
@@ -113,12 +113,12 @@ questions:
       ```
     index-2016: 184
     answers:
-      - Program ima gresku u prvoj naredbi WriteLine, jer je nepravilan poiv funkcije prosek(niz).
-      - Program ima gresku u drugoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(1,2,2,1,4).
-      - Program ima gresku u trecoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(new double[] {1, 2, 3}).
-      - Program ima gresku u cetvrtoj naredbi WriteLine, jer je nepravilan poziv funkcije prosek(1.0, 2.0, 2.0, 1.0).
-      - Program se izvrsava bez greske i prosek datih brojeva se tacno izracunava.
-      - Program se izvrsava bez greske, ali se prosek datih brojeva ne izracunava tacno.
+      - Program ima grešku u prvoj naredbi `WriteLine`, jer je nepravilan poiv funkcije `prosek(niz)`.
+      - Program ima grešku u drugoj naredbi `WriteLine`, jer je nepravilan poziv funkcije `prosek(1,2,2,1,4)`.
+      - Program ima grešku u trecoj naredbi `WriteLine`, jer je nepravilan poziv funkcije `prosek(new double[] {1, 2, 3})`.
+      - Program ima grešku u četvrtoj naredbi `WriteLine`, jer je nepravilan poziv funkcije `prosek(1.0, 2.0, 2.0, 1.0)`.
+      - Program se izvršava bez greške i prosek datih brojeva se tačno izračunava.
+      - Program se izvršava bez greške, ali se prosek datih brojeva ne izračunava tačno.
     correct-answers: [5]
 
   - question: |-
@@ -221,9 +221,9 @@ questions:
       Dat je kod u programskom jeziku C#, koji definiše rekurzivni metod. Analizirati kod i odrediti rezultat izvršavanja zadatog metoda:
      
       ```cs
-      public static int fun(int n){
-      if(n == 1) return 1;
-      else return n + fun(n-1);
+      public static int fun(int n) {
+          if(n == 1) return 1;
+          else return n + fun(n-1);
       }
       ```
     index-2016: 189
@@ -323,16 +323,16 @@ questions:
     correct-answers: [4]
 
   - question: |-
-        Data je definicija klase u programskom jeziku C#. Proceniti gde u definiciji klase (ispred koje metode) treba zameniti znakove ??? službenom rečju `static`.
-       
-        ```cs
-        public class Test{
-        private broj;
+      Data je definicija klase u programskom jeziku C#. Proceniti gde u definiciji klase (ispred koje metode) treba zameniti znakove ??? službenom rečju `static`.
+      
+      ```cs
+      public class Test{
+          private broj;
 
-        public ??? int kvadrant(int n) {return n * n;}
-        public ??? int getBroj() {return broj;}
-        }
-        ```
+          public ??? int kvadrant(int n) {return n * n;}
+          public ??? int getBroj() {return broj;}
+      }
+      ```
     index-2016: 193
     answers:
       - Metoda `kvadrant` MORA da bude statička, dok metoda `getBroj` može i ne mora.
@@ -342,7 +342,7 @@ questions:
     correct-answers: [4]
 
   - question: |-
-      U programskom jeziku C#, metod `Equals()` za proveru jednakosti dva objekta je definisan u klasi `Object`. U datom programskom kodu, u klasi `Klasa` je predefinisan metod `Equals()`. Analizirati kod i proceniti tačnost izvrsšnja.
+      U programskom jeziku C#, metod `Equals()` za proveru jednakosti dva objekta je definisan u klasi `Object`. U datom programskom kodu, u klasi `Klasa` je predefinisan metod `Equals()`. Analizirati kod i proceniti tačnost izvršenja.
         
       ```cs
       namespace TestPrimer{
@@ -577,6 +577,7 @@ questions:
        
         ```cs
         class Program{
+
             public static void Main(string[] args) {
                 Vozilo v= new Vozilo(8);
                 v.vozi();
@@ -768,7 +769,7 @@ questions:
       - |-
         `char[] niz = new char{'a', 'b', 'c', 'd'};`
       - |-
-        `char[] niz = new char{'a', 'b', 'c', 'd'}`
+        `char[] niz = new char[]{'a', 'b'};`
     correct-answers: [2, 3, 6]
 
   - question: |-
@@ -893,7 +894,7 @@ questions:
       - Program ima gresku, jer naredbu `Console.WriteLine(a)` treba zameniti naredbom `Console.WriteLine(a.ToString())`.
       - Prilikom izvrsavanja naredbe `Console.WriteLine(a)`, program poziva metod `ToString()` nasledjen iz klase `Object`.
       - Prilikom izvrsavanja naredbe `Console.WriteLine(a)`, program poziva metod `ToString()` iz klase `KlasaA`.
-      - Prilikom izvrsavanja naredbe Console.WriteLine(obj), program poziva metod `ToString()` iz klase `Object`.
+      - Prilikom izvrsavanja naredbe `Console.WriteLine(obj)`, program poziva metod `ToString()` iz klase `Object`.
     correct-answers: [3, 4]
 
   - question: |-
@@ -1116,7 +1117,7 @@ questions:
       }
       ```
 
-      Kompilator javlja grešku pri prevođenju ovog koda koju je moguće resšti na više načina u zavisnosti od očekivanog efekta.
+      Kompilator javlja grešku pri prevođenju ovog koda koju je moguće rešiti na više načina u zavisnosti od očekivanog efekta.
       
       Koja će rešenja od očekivanog otkloniti grešku u kodu:
     index-2016: 225

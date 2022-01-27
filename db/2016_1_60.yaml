@@ -629,19 +629,19 @@ questions:
     correct-answers: [4]
   
   - question: |-
-      U programskom jeziku C deklarisan je strukturni tip podataka Ucenik, a zatim i promenljiva koja predstavlja niz od max 30 učenika:
+      U programskom jeziku C deklarisan je strukturni tip podataka `Ucenik`, a zatim i promenljiva koja predstavlja niz od max 30 učenika:
 
       ```c
       typedef struct
       {
-        char naziv[30];
-        int razred, ocena; 
+          char naziv[30];
+          int razred, ocena; 
       } Predmet;
 
       typedef struct
       {
-        char ime[20], prezime[20];
-        Predmet predmeti[10];
+          char ime[20], prezime[20];
+          Predmet predmeti[10];
       } Ucenik;
 
       int i; Ucenik T[30];

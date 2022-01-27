@@ -52,10 +52,10 @@ questions:
 
       ```c
       for(i=1;i<n;i++) { 
-      temp=a[i];
-      j=i-1;
-      while(j>=0 && a[j]>temp) a[j+1]=a[j--];
-      a[j+1]=temp;
+          temp=a[i];
+          j=i-1;
+          while(j>=0 && a[j]>temp) a[j+1]=a[j--];
+          a[j+1]=temp;
       }
       ```
     index-2016: 63
@@ -63,7 +63,7 @@ questions:
       - selection sort
       - shell sort
       - boubble sort
-      - comare sleection sort
+      - comare selection sort
       - insertion sort
     correct-answers: [5]
 
@@ -192,9 +192,8 @@ questions:
       int fun(char c)
       {
       return ((c>='a'&&c<='z') ||
-                    (c>='A'&&c<='Z') ||
-                    (c>='0'&&c<='9')) ? 1 : 0;
-                   
+              (c>='A'&&c<='Z') ||
+              (c>='0'&&c<='9')) ? 1 : 0;    
       }
       ```
     index-2016: 69
@@ -232,7 +231,6 @@ questions:
       ```
 
       Odrediti iskaz koji tačno opisuje povratnu vrednost funkcije:
-
     index-2016: 70
     answers:
       - Vraća vrednost prvog dvocifrenog broja niza `x` od `n` elemenata, a ako dvocifrenog broja nema vraća `NULL`.
@@ -305,11 +303,11 @@ questions:
 
       ```c
       char *fun(char *s) {
-      char c,*temp;
+          char c,*temp;
           temp=s;
-      while((c=getchar())!='\n')*temp++=c;
+          while((c=getchar())!='\n') *temp++=c;
           *temp='\0';
-      return s;
+          return s;
       }
       ```
     index-2016: 73
@@ -336,7 +334,7 @@ questions:
       ```c
       int fun(char *s, char *t) {
           char tempt, temps;
-          while(*s && *t){
+          while(*s && *t) {
               if(*t>='A'&& *t<='Z') tempt = 'a' + *t -'A';
               else tempt=*t;
               if(*s>='A'&& *s<='Z') temps = 'a' + *s -'A';
@@ -456,8 +454,8 @@ questions:
     correct-answers: [2,4]
 
   - question: |-
-      U programskom jeziku C definisane su strukture koje omogućavaju grupisanje podataka različitih tipova. Definisati strukturni tip podatka **Tucenik** sa poljima **ime** (maksimalno 30 karaktera), **prezime** (maksimalno 30 karaktera) i **prosek** (tipa `double`).
-      Odrediti ispravno napisane deklaracije strukturnog tipa **Tucenik**:
+      U programskom jeziku C definisane su strukture koje omogućavaju grupisanje podataka različitih tipova. Definisati strukturni tip podatka `Tucenik` sa poljima `ime` (maksimalno 30 karaktera), `prezime` (maksimalno 30 karaktera) i `prosek` (tipa `double`).
+      Odrediti ispravno napisane deklaracije strukturnog tipa `Tucenik`:
     index-2016: 80  
     answers:
       - |-
@@ -630,7 +628,7 @@ questions:
     correct-answers: [1,3,4]
 
   - question: |-
-      Navedene su tvrdnje koje se odnose na prevođenje koda procesom kombilacije. Odrediti koje od ponuđenih tvrdnji tu **tačne**:
+      Navedene su tvrdnje koje se odnose na prevođenje koda procesom kompilacije. Odrediti koje od ponuđenih tvrdnji tu **tačne**:
     index-2016: 88
     answers:
       - Kod kompilatorskih jezika, posle svake promene u izvornom kodu neophodno je ponoviti proces prevođenja.
@@ -773,10 +771,10 @@ questions:
       ```c
       typedefstruct
       {
-      char ime[50];
-      int razred;
-      int ocene[10];
-      }Ucenik; …
+          char ime[50];
+          int razred;
+          int ocene[10];
+      } Ucenik; …
       int i; Ucenik x;
       ```
 
@@ -823,7 +821,7 @@ questions:
     correct-answers: [2,4]
 
   - question: |-
-      Data je naredba u C jeziku, koja temperaturu u Celzijusima temc pretvara u temperaturu u Farenhajtima `temf`. Podaci `temc` i `temf` su realni brojevi obične tačnosti. Proceniti koji izrazi daju tačno rešenje.
+      Data je naredba u C jeziku, koja temperaturu u Celzijusima `temc` pretvara u temperaturu u Farenhajtima `temf`. Podaci `temc` i `temf` su realni brojevi obične tačnosti. Proceniti koji izrazi daju tačno rešenje.
     index-2016: 96
     answers:
       - |-
@@ -840,7 +838,7 @@ questions:
       U programskom jeziku C napisati funkciju `xcalloc` koja dodeljuje memorijski prostor vektoru od `n` elemenata i vrši inicijalizaciju njegovih elemenata. Svaki element vektora zauzima memorijski prostor veličine `size` bajtova. U sedmu liniju koda dopisati naredbu koja nedostaje da bi funkcija izvršavala svoj zadatak.
       
       ```c
-      1. void *xcalloc(int n, int siz)
+      1. void *xcalloc(int n, int size)
       2. {
       3.    int i;
       4.    char *p, *q;
