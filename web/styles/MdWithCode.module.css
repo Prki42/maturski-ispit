@@ -12,9 +12,9 @@
 .inlineCode {
   color: #1d1f21;
   background-color: #ededed;
-  padding: 2px;
+  padding: 1px 3px;
   border-radius: 5px;
   border: 1px solid #b3b3b3;
   font-size: 0.87em !important;
-  white-space: nowrap !important;
+  white-space: pre !important;
 }
