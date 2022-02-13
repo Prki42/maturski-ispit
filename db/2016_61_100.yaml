@@ -399,7 +399,7 @@ questions:
       Navedeni su iskazi koji se odnose na definiciju `do while` ciklusa. Koji od ovih iskaza su **tačni**:
     index-2016: 77
     answers:
-      - Korisit se kada se ne zna koliko će se puta ciklus ponavljati.
+      - Koristi se kada se ne zna koliko će se puta ciklus ponavljati.
       - Prvo se izvršava telo ciklusa, a zatim izračunava vrednost logičkog izraza. Ako se dobije logička neistina ciklus se ponovo izvršava.
       - Ciklus se izvršava kada uslov dobija vrednost logičke istine.
       - Ciklus se izvršava barem jednom.
@@ -560,7 +560,7 @@ questions:
 
       ```c
       float x, z;
-      constfloat y;
+      const float y;
       ```
 
       Koje su **neispravno** napisane naredbe dodela vrednosti promenljivama:
